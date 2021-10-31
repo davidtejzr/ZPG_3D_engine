@@ -76,7 +76,7 @@ void FirstScene::renderScene()
 	_objectManager->getObject(5)->getTransformations()->rotate(0.0f, 1.0f, 0.0f);
 	_objectManager->getObject(6)->getTransformations()->rotate(0.0f, 1.0f, 0.0f);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < _objectManager->getCount(); i++)
 	{
 		_objectManager->getObject(i)->loopObject(_camera);
 	}

@@ -20,9 +20,15 @@ ObjectManager* ObjectManager::getInstance()
 void ObjectManager::insertObject(Object* object)
 {
     _objects->push_back(object);
+    _count++;
 }
 
 Object* ObjectManager::getObject(int id)
 {
     return _objects->at(id);
+}
+
+int ObjectManager::getCount()
+{
+    return _count;
 }

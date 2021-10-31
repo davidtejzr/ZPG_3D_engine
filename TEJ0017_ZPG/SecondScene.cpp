@@ -40,7 +40,7 @@ void SecondScene::renderScene()
 	_controller->checkInputs();
 	_camera->lookAt();
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < _objectManager->getCount(); i++)
 	{
 		_objectManager->getObject(i)->loopObject(_camera);
 	}
