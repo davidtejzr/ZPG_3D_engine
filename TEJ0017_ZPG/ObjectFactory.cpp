@@ -29,3 +29,9 @@ Object* ObjectFactory::initGround(Model* model, Shader* shader)
     Object* object = new GroundObject(shader, model);
     return object;
 }
+
+Object* ObjectFactory::initPlain(Model* model, Shader* shader)
+{
+    Object* object = new PlainObject(shader, model);
+    return object;
+}

@@ -18,26 +18,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-class Camera
+#include "Camera.h"
+
+class Controller
 {
 public:
-	static Camera* getInstance(GLFWwindow* window, glm::vec3 position);
-	void lookAt();
-	glm::mat4 getView();
-	glm::mat4 getProjection();
-
-	GLFWwindow* _window;
-	glm::vec3 _position;
-	glm::vec3 _orientation = glm::vec3(0.0f, 0.0f, -1.0f);
-	glm::vec3 _up = glm::vec3(0.0f, 1.0f, 0.0f);
-	int _width = 0;
-	int _height = 0;
-
+	static Controller* getInstance(Camera* camera);
+	void checkInputs();
 private:
-	Camera(GLFWwindow* window, glm::vec3 position);
-	static Camera* _instance;
-	glm::mat4 _view = glm::mat4(1.0f);
-	glm::mat4 _projection = glm::mat4(1.0f);
-
+	Controller(Camera* camera);
+	static Controller* _instance;
+	Camera* _camera;
+	float _speed = 0.1f;
+	float _sensitivity = 100.0f;
+	bool _firstClick = true;
 };
 

@@ -4,16 +4,21 @@
 
 int main(void)
 {
-	Init init;
-	GLFWwindow* window = init.getWindow();
-	Scene scene(window);
+	Init* init = Init::getInstance();
+	GLFWwindow* window = init->getWindow();
+
+	//Prepinani scen
+	//FirstScene - moje scena
+	//SecondScene - 4 kulicky
+	//Scene* scene = SceneFactory::initFirstScene(window);
+	Scene* scene = SceneFactory::initSecondScene(window);
 
 	while (!glfwWindowShouldClose(window))
 	{
 		// clear color and depth buffer
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		scene.renderScene();
+		scene->renderScene();
 
 		// update other events like input handling
 		glfwPollEvents();

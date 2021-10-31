@@ -11,13 +11,16 @@
 #include <stdio.h>
 
 #include "Scene.h"
+#include "SceneFactory.h"
 
 class Init
 {
 public:
-	Init();
+	static Init* getInstance();
 	GLFWwindow* getWindow();
 private:
+	Init();
+	static Init* _instance;
 	GLFWwindow* _window;
 	int _width;
 	int _height;

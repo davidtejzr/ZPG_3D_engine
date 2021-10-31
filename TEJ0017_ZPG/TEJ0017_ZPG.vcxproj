@@ -146,6 +146,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="GroundObject.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
@@ -153,7 +155,9 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="PlainObject.cpp" />
+    <ClCompile Include="SceneFactory.cpp" />
+    <ClCompile Include="SecondScene.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="SphereObject.cpp" />
@@ -164,6 +168,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="FirstScene.h" />
     <ClInclude Include="ground.h" />
     <ClInclude Include="GroundObject.h" />
     <ClInclude Include="Init.h" />
@@ -171,7 +177,11 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="plain.h" />
+    <ClInclude Include="PlainObject.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneFactory.h" />
+    <ClInclude Include="SecondScene.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="sphere.h" />

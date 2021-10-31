@@ -9,10 +9,12 @@
 class ObjectManager
 {
 public:
-	ObjectManager();
+	static ObjectManager* getInstance();
 	void insertObject(Object* object);
 	Object* getObject(int id);
 private:
+	ObjectManager();
+	static ObjectManager* _instance;
 	std::vector<Object*>* _objects;
 };
 

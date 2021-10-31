@@ -1,5 +1,7 @@
 #include "Init.h"
 
+Init* Init::_instance = nullptr;
+
 Init::Init()
 {
 	glfwSetErrorCallback(error_callback);
@@ -43,6 +45,16 @@ Init::Init()
 	glViewport(0, 0, this->_width, this->_height);
 
 	glEnable(GL_DEPTH_TEST);
+}
+
+Init* Init::getInstance()
+{
+	if (_instance == nullptr)
+	{
+		_instance = new Init();
+	}
+
+	return _instance;
 }
 
 GLFWwindow* Init::getWindow()

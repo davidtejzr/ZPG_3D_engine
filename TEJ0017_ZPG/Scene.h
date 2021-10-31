@@ -9,6 +9,7 @@
 #include "ObjectFactory.h"
 #include "ObjectManager.h"
 #include "Camera.h"
+#include "Controller.h"
 
 //My models
 #include "sphere.h"
@@ -16,15 +17,17 @@
 #include "suzi_smooth.h"
 #include "tree.h"
 #include "ground.h"
+#include "plain.h"
 
 class Scene
 {
 public:
-	Scene(GLFWwindow* window);
-	void renderScene();
-private:
+	virtual void renderScene() = 0;
+protected:
 	GLFWwindow* _window;
-	class ObjectManager* _objectManager;
-	class Camera* _camera;
+	ObjectManager* _objectManager;
+	ShaderManager* _shaderManager;
+	Camera* _camera;
+	Controller* _controller;
 };
 

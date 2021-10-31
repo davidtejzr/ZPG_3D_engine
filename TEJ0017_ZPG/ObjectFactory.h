@@ -9,6 +9,7 @@
 #include "SuziFlatObject.h"
 #include "SuziSmoothObject.h"
 #include "GroundObject.h"
+#include "PlainObject.h"
 
 class ObjectFactory
 {
@@ -18,5 +19,6 @@ public:
 	static Object* initSuziFlat(Model* model, Shader* shader);
 	static Object* initSuziSmooth(Model* model, Shader* shader);
 	static Object* initGround(Model* model, Shader* shader);
+	static Object* initPlain(Model* model, Shader* shader);
 };
 
