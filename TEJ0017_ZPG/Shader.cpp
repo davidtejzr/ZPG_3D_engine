@@ -51,6 +51,11 @@ void Shader::projectionToShader(glm::mat4 projection)
 	glUniformMatrix4fv(glGetUniformLocation(_shaderProgram, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 }
 
+void Shader::cameraPosToShader(glm::vec3 cameraPosition)
+{
+	glUniformMatrix4fv(glGetUniformLocation(_shaderProgram, "cameraPosition"), 1, GL_FALSE, glm::value_ptr(cameraPosition));
+}
+
 std::string Shader::getContentFromFile(const char* filename)
 {
 	std::string fileContent;

@@ -25,6 +25,7 @@ public:
 	void lookAt();
 	glm::mat4 getView();
 	glm::mat4 getProjection();
+	glm::vec3 getPosition();
 
 	GLFWwindow* _window;
 	glm::vec3 _position;

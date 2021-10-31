@@ -13,6 +13,7 @@ void TreeObject::loopObject(Camera* camera)
 	_shader->modelToShader(_trans->getModel());
 	_shader->projectionToShader(camera->getProjection());
 	_shader->viewToShader(camera->getView());
+	_shader->cameraPosToShader(camera->getPosition());
 	_model->modelInLoop();
 	glDrawArrays(GL_TRIANGLES, 0, 92814);
 }

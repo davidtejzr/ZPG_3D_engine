@@ -35,3 +35,8 @@ glm::mat4 Camera::getProjection()
 {
 	return _projection;
 }
+
+glm::vec3 Camera::getPosition()
+{
+	return _position;
+}

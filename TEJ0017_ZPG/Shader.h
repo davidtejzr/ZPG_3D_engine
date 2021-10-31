@@ -25,7 +25,7 @@ public:
 	void modelToShader(glm::mat4 model);
 	void viewToShader(glm::mat4 view);
 	void projectionToShader(glm::mat4 projection);
-
+	void cameraPosToShader(glm::vec3 cameraPosition);
 private:
 	const char* _vertex_shader;
 	const char* _fragment_shader;

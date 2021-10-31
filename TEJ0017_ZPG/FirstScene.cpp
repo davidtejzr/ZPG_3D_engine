@@ -21,22 +21,22 @@ FirstScene::FirstScene(GLFWwindow* window)
 	Model* model1 = new Model(sphere, sizeof(sphere));
 	_objectManager->insertObject(ObjectFactory::initSphere(model1, _shaderManager->getShader(2)));
 	_objectManager->getObject(1)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
-	_objectManager->getObject(1)->getTransformations()->translate(-1.5f, 1.0f, 0.0f);
+	_objectManager->getObject(1)->getTransformations()->translate(-1.0f, 1.0f, -2.0f);
 
 	Model* model2 = new Model(sphere, sizeof(sphere));
 	_objectManager->insertObject(ObjectFactory::initSphere(model2, _shaderManager->getShader(2)));
 	_objectManager->getObject(2)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
-	_objectManager->getObject(2)->getTransformations()->translate(0.0f, 1.0f, -1.5f);
+	_objectManager->getObject(2)->getTransformations()->translate(-1.0f, 3.0f, -2.0f);
 
 	Model* model3 = new Model(sphere, sizeof(sphere));
 	_objectManager->insertObject(ObjectFactory::initSphere(model3, _shaderManager->getShader(2)));
 	_objectManager->getObject(3)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
-	_objectManager->getObject(3)->getTransformations()->translate(1.5f, 1.0f, 0.0f);
+	_objectManager->getObject(3)->getTransformations()->translate(1.0f, 1.0f, -2.0f);
 
 	Model* model4 = new Model(sphere, sizeof(sphere));
 	_objectManager->insertObject(ObjectFactory::initSphere(model4, _shaderManager->getShader(2)));
 	_objectManager->getObject(4)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
-	_objectManager->getObject(4)->getTransformations()->translate(0.0f, 1.0f, 1.5f);
+	_objectManager->getObject(4)->getTransformations()->translate(1.0f, 3.0f, -2.0f);
 
 	Model* model5 = new Model(tree, sizeof(tree));
 	_objectManager->insertObject(ObjectFactory::initTree(model5, _shaderManager->getShader(1)));

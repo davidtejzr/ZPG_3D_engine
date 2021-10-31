@@ -22,7 +22,7 @@ Application::Application()
 	//SecondScene - 4 kulicky
 
 	Scene* scene = SceneFactory::initFirstScene(_window);
-	//Scene* scene = SceneFactory::initSecondScene(window);
+	//Scene* scene = SceneFactory::initSecondScene(_window);
 
 	while (!glfwWindowShouldClose(_window))
 	{
