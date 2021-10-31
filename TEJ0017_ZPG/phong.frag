@@ -4,6 +4,7 @@ in vec4 ex_worldNormal;
 out vec4 frag_colour;
 
 uniform vec3 cameraPosition;
+uniform vec3 lightPosition;
 
 void main(void)
 {

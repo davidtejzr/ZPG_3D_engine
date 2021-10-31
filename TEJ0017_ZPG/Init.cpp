@@ -41,7 +41,6 @@ Init::Init()
 	printf("Using GLFW %i.%i.%i\n", major, minor, revision);
 
 	glfwGetFramebufferSize(_window, &this->_width, &this->_height);
-	float ratio = this->_width / (float)this->_height;
 	glViewport(0, 0, this->_width, this->_height);
 
 	glEnable(GL_DEPTH_TEST);

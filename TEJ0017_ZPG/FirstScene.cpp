@@ -66,12 +66,15 @@ FirstScene::FirstScene(GLFWwindow* window)
 	//_camera = new Camera(_window, glm::vec3(0.0f, 0.0f, 2.0f));
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
 	_controller = Controller::getInstance(_camera);
+	_shaderManager->getShader(1)->lightPosToShader(_lightPosition);
+	_shaderManager->getShader(2)->lightPosToShader(_lightPosition);
 }
 
 void FirstScene::renderScene()
 {
 	_controller->checkInputs();
 	_camera->lookAt();
+	_shaderManager->getShader(2)->cameraPosToShader(_camera->getPosition());
 
 	_objectManager->getObject(5)->getTransformations()->rotate(0.0f, 1.0f, 0.0f);
 	_objectManager->getObject(6)->getTransformations()->rotate(0.0f, 1.0f, 0.0f);

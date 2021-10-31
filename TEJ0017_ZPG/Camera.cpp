@@ -21,6 +21,7 @@ Camera* Camera::getInstance(GLFWwindow* window, glm::vec3 position)
 void Camera::lookAt()
 {
 	glfwGetWindowSize(_window, &_width, &_height);
+	glViewport(0, 0, _width, _height);
 
 	_view = glm::lookAt(_position, _position + _orientation, _up);
 	_projection = glm::perspective(glm::radians(45.0f), (float)(_width / _height), 0.1f, 100.0f);

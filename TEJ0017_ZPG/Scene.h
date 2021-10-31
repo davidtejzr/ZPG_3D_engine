@@ -29,5 +29,6 @@ protected:
 	ShaderManager* _shaderManager;
 	Camera* _camera;
 	Controller* _controller;
+	glm::vec3 _lightPosition = glm::vec3(10.0f, 10.0f, 10.0f);
 };
 
