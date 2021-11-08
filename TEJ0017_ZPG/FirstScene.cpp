@@ -15,7 +15,7 @@ FirstScene::FirstScene(GLFWwindow* window)
 	//_objectManager->insertObject(ObjectFactory::initGround(model0, shaderManager.getShader(1)));
 
 	Model* model0 = new Model(plain, sizeof(plain));
-	_objectManager->insertObject(ObjectFactory::initPlain(model0, _shaderManager->getShader(1)));
+	_objectManager->insertObject(ObjectFactory::initPlain(model0, _shaderManager->getShader(0)));
 	_objectManager->getObject(0)->getTransformations()->scale(6.0f, 0.0f, 6.0f);
 
 	Model* model1 = new Model(sphere, sizeof(sphere));
@@ -63,11 +63,9 @@ FirstScene::FirstScene(GLFWwindow* window)
 	_objectManager->getObject(9)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
 	_objectManager->getObject(9)->getTransformations()->translate(8.5f, 0.0f, -2.5f);
 
-	//_camera = new Camera(_window, glm::vec3(0.0f, 0.0f, 2.0f));
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
 	_controller = Controller::getInstance(_camera);
-	_shaderManager->getShader(1)->lightPosToShader(_lightPosition);
-	_shaderManager->getShader(2)->lightPosToShader(_lightPosition);
+	_lightPosition = glm::vec3(10.0f, 10.0f, 10.0f);
 }
 
 void FirstScene::renderScene()
@@ -75,6 +73,8 @@ void FirstScene::renderScene()
 	_controller->checkInputs();
 	_camera->lookAt();
 	_shaderManager->getShader(2)->cameraPosToShader(_camera->getPosition());
+	_shaderManager->getShader(2)->lightPosToShader(_lightPosition);
+	_shaderManager->getShader(1)->lightPosToShader(_lightPosition);
 
 	_objectManager->getObject(5)->getTransformations()->rotate(0.0f, 1.0f, 0.0f);
 	_objectManager->getObject(6)->getTransformations()->rotate(0.0f, 1.0f, 0.0f);

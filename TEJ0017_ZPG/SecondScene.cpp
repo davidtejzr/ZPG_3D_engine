@@ -33,12 +33,15 @@ SecondScene::SecondScene(GLFWwindow* window)
 
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 0.0f, 6.0f));
 	_controller = Controller::getInstance(_camera);
+	_lightPosition = glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 void SecondScene::renderScene()
 {
 	_controller->checkInputs();
 	_camera->lookAt();
+	_shaderManager->getShader(2)->cameraPosToShader(_camera->getPosition());
+	_shaderManager->getShader(2)->lightPosToShader(_lightPosition);
 
 	for (int i = 0; i < _objectManager->getCount(); i++)
 	{
