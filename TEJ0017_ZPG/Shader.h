@@ -16,8 +16,10 @@
 #include <stdio.h>
 #include <string>
 #include <fstream>
+#include "CameraObserver.h"
+#include "Camera.h"
 
-class Shader
+class Shader : public CameraObserver
 {
 public:
 	Shader(const char* vertex_shader_filename, const char* fragment_shader_filename);
@@ -27,6 +29,7 @@ public:
 	void projectionToShader(glm::mat4 projection);
 	void cameraPosToShader(glm::vec3 cameraPosition);
 	void lightPosToShader(glm::vec3 lightPosition);
+	void update();
 private:
 	const char* _vertex_shader;
 	const char* _fragment_shader;

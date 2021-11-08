@@ -21,8 +21,8 @@ Application::Application()
 	//FirstScene - moje scena
 	//SecondScene - 4 kulicky
 
-	//Scene* scene = SceneFactory::initFirstScene(_window);
-	Scene* scene = SceneFactory::initSecondScene(_window);
+	Scene* scene = SceneFactory::initFirstScene(_window);
+	//Scene* scene = SceneFactory::initSecondScene(_window);
 
 	while (!glfwWindowShouldClose(_window))
 	{

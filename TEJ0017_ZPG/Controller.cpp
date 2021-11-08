@@ -71,6 +71,7 @@ void Controller::checkInputs()
 
 		float rotX = _sensitivity * (float)(mouseY - (_camera->_height / 2)) / _camera->_height;
 		float rotY = _sensitivity * (float)(mouseX - (_camera->_width / 2)) / _camera->_width;
+		printf("%d %d\n", _camera->_height, _camera->_width);
 
 		glm::vec3 newOrientation = glm::rotate(_camera->_orientation, glm::radians(-rotX), glm::normalize(glm::cross(_camera->_orientation, _camera->_up)));
 
