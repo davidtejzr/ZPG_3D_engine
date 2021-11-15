@@ -22,6 +22,7 @@ class Camera
 {
 public:
 	static Camera* getInstance(GLFWwindow* window, glm::vec3 position);
+	static Camera* getInstance();
 	void lookAt();
 	glm::mat4 getView();
 	glm::mat4 getProjection();

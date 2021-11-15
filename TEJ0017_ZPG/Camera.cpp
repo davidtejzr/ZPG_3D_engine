@@ -18,6 +18,14 @@ Camera* Camera::getInstance(GLFWwindow* window, glm::vec3 position)
 	return _instance;
 }
 
+Camera* Camera::getInstance()
+{
+	if (_instance != nullptr)
+	{
+		return _instance;
+	}
+}
+
 void Camera::lookAt()
 {
 	glfwGetWindowSize(_window, &_width, &_height);

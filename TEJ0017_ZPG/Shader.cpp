@@ -61,11 +61,6 @@ void Shader::lightPosToShader(glm::vec3 lightPosition)
 	glUniform3f(glGetUniformLocation(_shaderProgram, "lightPosition"), lightPosition.x, lightPosition.y, lightPosition.z);
 }
 
-void Shader::uvToShader(glm::vec2 uv)
-{
-	glUniform2f(glGetUniformLocation(_shaderProgram, "lightPosition"), uv.x, uv.y);
-}
-
 void Shader::textureToShader()
 {
 	GLint uniformID = glGetUniformLocation(_shaderProgram, "textureUnitID");
@@ -74,9 +69,8 @@ void Shader::textureToShader()
 
 void Shader::update()
 {
-	//glUniformMatrix4fv(glGetUniformLocation(_shaderProgram, "view"), 1, GL_FALSE, glm::value_ptr(view));
-	//glUniformMatrix4fv(glGetUniformLocation(_shaderProgram, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
-	//glUniform3f(glGetUniformLocation(_shaderProgram, "cameraPosition"), cameraPosition.x, cameraPosition.y, cameraPosition.z);
+	Camera *cam = Camera::getInstance();
+	glUniform3f(glGetUniformLocation(_shaderProgram, "cameraPosition"), cam->_position.x, cam->_position.y, cam->_position.z);
 }
 
 std::string Shader::getContentFromFile(const char* filename)

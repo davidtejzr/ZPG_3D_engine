@@ -1,6 +1,5 @@
 #pragma once
 
-//todo!!!
 class CameraObserver
 {
 public:
