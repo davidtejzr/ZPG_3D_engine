@@ -209,5 +209,11 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="blinn.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="blinn.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

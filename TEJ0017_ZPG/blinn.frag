@@ -16,7 +16,7 @@ void main(void)
 
 	vec3 cameraDirection = normalize(cameraPosition - vec3(ex_worldPosition));
 	vec3 reflectDirection = reflect((-normalize(lightVector)), normalize(vec3(ex_worldNormal)));
-	float specular = pow(max(dot(cameraDirection, reflectDirection), 0.0f), 8) * 0.5f;
+	float specular = pow(max(dot(normalize(lightVector + cameraDirection), vec3(ex_worldNormal)), 0.0), 32.0) * 0.5f;
 
 	frag_colour = ambient + diffuse + specular;
 }

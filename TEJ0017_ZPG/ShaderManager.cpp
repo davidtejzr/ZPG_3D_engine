@@ -8,6 +8,7 @@ ShaderManager::ShaderManager()
     _shaders->push_back(Shader("constant.vert", "constant.frag"));
     _shaders->push_back(Shader("lambert.vert", "lambert.frag"));
     _shaders->push_back(Shader("phong.vert", "phong.frag"));
+    _shaders->push_back(Shader("blinn.vert", "blinn.frag"));
 }
 
 ShaderManager* ShaderManager::getInstance()

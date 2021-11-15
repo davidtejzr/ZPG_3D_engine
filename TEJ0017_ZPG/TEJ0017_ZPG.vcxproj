@@ -200,6 +200,8 @@
     <ClInclude Include="TreeObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="blinn.frag" />
+    <None Include="blinn.vert" />
     <None Include="ClassDiagram.cd">
       <DeploymentContent>true</DeploymentContent>
     </None>

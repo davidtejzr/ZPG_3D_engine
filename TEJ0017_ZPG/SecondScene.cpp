@@ -9,10 +9,11 @@ SecondScene::SecondScene(GLFWwindow* window)
 	//0 - Constant
 	//1 - Lambert
 	//2 - Phong
+	//3 - Blinn
 	_shaderManager = ShaderManager::getInstance();
 
 	Model* model0 = new Model(0, sphere, sizeof(sphere));
-	_objectManager->insertObject(ObjectFactory::initSphere(model0, _shaderManager->getShader(2)));
+	_objectManager->insertObject(ObjectFactory::initSphere(model0, _shaderManager->getShader(3)));
 	_objectManager->getObject(0)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
 	_objectManager->getObject(0)->getTransformations()->translate(-2.5f, 0.0f, -0.5f);
 
@@ -22,7 +23,7 @@ SecondScene::SecondScene(GLFWwindow* window)
 	_objectManager->getObject(1)->getTransformations()->translate(0.0f, 2.5f, -0.5f);
 
 	Model* model2 = new Model(0, sphere, sizeof(sphere));
-	_objectManager->insertObject(ObjectFactory::initSphere(model2, _shaderManager->getShader(2)));
+	_objectManager->insertObject(ObjectFactory::initSphere(model2, _shaderManager->getShader(3)));
 	_objectManager->getObject(2)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
 	_objectManager->getObject(2)->getTransformations()->translate(2.5f, 0.0f, -0.5f);
 
@@ -40,8 +41,12 @@ void SecondScene::renderScene()
 {
 	_controller->checkInputs();
 	_camera->lookAt();
+
 	_shaderManager->getShader(2)->cameraPosToShader(_camera->getPosition());
 	_shaderManager->getShader(2)->lightPosToShader(_lightPosition);
+
+	_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
+	_shaderManager->getShader(3)->lightPosToShader(_lightPosition);
 
 	for (int i = 0; i < _objectManager->getCount(); i++)
 	{
