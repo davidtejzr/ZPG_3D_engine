@@ -14,6 +14,13 @@
       <FileName>Camera.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CameraObserver" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>CameraObserver.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Controller" Collapsed="true">
     <Position X="18.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -73,7 +80,7 @@
   <Class Name="Shader" Collapsed="true">
     <Position X="5.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAEEAAAQAAAAgAAEFAAAAAAAAAAQAAAgAAAIIAAUAAA=</HashCode>
+      <HashCode>QAEEAAAwAAAAgAAEFAAAAAAAAAARAAAgAAAIIAAUAAA=</HashCode>
       <FileName>Shader.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -84,57 +91,57 @@
       <FileName>ShaderManager.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Tranformations" Collapsed="true">
+  <Class Name="Texture" Collapsed="true">
     <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tranformations" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAgAQAAACAAAAAAAAAAAAAAAAJAA=</HashCode>
       <FileName>Tranformations.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CameraObserver" Collapsed="true">
-    <Position X="5.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>CameraObserver.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="GroundObject" Collapsed="true">
-    <Position X="10" Y="1.75" Width="1.5" />
+    <Position X="1" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>GroundObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlainObject" Collapsed="true">
-    <Position X="1" Y="1.75" Width="1.5" />
+    <Position X="5.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>PlainObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphereObject" Collapsed="true">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+    <Position X="7.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>SphereObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SuziFlatObject" Collapsed="true">
-    <Position X="5.5" Y="1.75" Width="1.5" />
+    <Position X="10" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>SuziFlatObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SuziSmoothObject" Collapsed="true">
-    <Position X="7.75" Y="1.75" Width="1.5" />
+    <Position X="12.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>SuziSmoothObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeObject" Collapsed="true">
-    <Position X="12.25" Y="1.75" Width="1.5" />
+    <Position X="3.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>TreeObject.h</FileName>

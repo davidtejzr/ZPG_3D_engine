@@ -1,6 +1,6 @@
 #include "Model.h"
 
-Model::Model(const float* points, int pointsSize)
+Model::Model(int mode, const float* points, int pointsSize)
 {
 	//vertex buffer Model (VBO)
 	_VBO = 0;
@@ -15,11 +15,21 @@ Model::Model(const float* points, int pointsSize)
 
 	glEnableVertexAttribArray(0); //enable vertex attributes
 	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
 
 	glBindBuffer(GL_ARRAY_BUFFER, _VBO);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(points[0]), (GLvoid*)0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(points[0]), (GLvoid*)(3 * sizeof(GL_FLOAT)));
+	if (mode == 0)
+	{
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(points[0]), (GLvoid*)0);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(points[0]), (GLvoid*)(3 * sizeof(GL_FLOAT)));
+	}
+	else if (mode == 1)
+	{
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(points[0]), (GLvoid*)0);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(points[0]), (GLvoid*)(3 * sizeof(GL_FLOAT)));
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(points[0]), (GLvoid*)(6 * sizeof(GL_FLOAT)));
+	}
 }
 
 void Model::modelInLoop()

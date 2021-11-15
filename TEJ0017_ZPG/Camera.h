@@ -39,6 +39,5 @@ private:
 	static Camera* _instance;
 	glm::mat4 _view = glm::mat4(1.0f);
 	glm::mat4 _projection = glm::mat4(1.0f);
-
 };
 

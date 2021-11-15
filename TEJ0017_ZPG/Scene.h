@@ -10,6 +10,7 @@
 #include "ObjectManager.h"
 #include "Camera.h"
 #include "Controller.h"
+#include "Texture.h"
 
 //My models
 #include "sphere.h"
