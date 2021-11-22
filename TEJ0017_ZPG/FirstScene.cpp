@@ -63,13 +63,23 @@ FirstScene::FirstScene(GLFWwindow* window)
 	_objectManager->getObject(9)->getTransformations()->scale(0.5f, 0.5f, 0.5f);
 	_objectManager->getObject(9)->getTransformations()->translate(8.5f, 0.0f, -2.5f);
 
+	//problem?
+	//Model* model10 = new Model(2, skybox, sizeof(skybox));
+	//_objectManager->insertObject(ObjectFactory::initSkybox(model10, _shaderManager->getShader(0)));
+	//_objectManager->getObject(10)->getTransformations()->translate(-9.0f, 0.0f, 0.0f);
+
+	Model* model11 = new Model("Textures/tree.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model11, _shaderManager->getShader(3)));
+	_objectManager->getObject(10)->getTransformations()->translate(-4.0f, 0.0f, 0.0f);
+	_objectManager->getObject(10)->getTransformations()->scale(0.15f, 0.15f, 0.15f);
+
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
 	_controller = Controller::getInstance(_camera);
 	_lightPosition = glm::vec3(10.0f, 10.0f, 10.0f);
 
 
-	Texture texture;
-	_shaderManager->getShader(0)->textureToShader();
+	//Texture texture(GL_TEXTURE0, "Textures/test.png");
+	//_shaderManager->getShader(0)->textureToShader(0);
 }
 
 void FirstScene::renderScene()

@@ -61,10 +61,10 @@ void Shader::lightPosToShader(glm::vec3 lightPosition)
 	glUniform3f(glGetUniformLocation(_shaderProgram, "lightPosition"), lightPosition.x, lightPosition.y, lightPosition.z);
 }
 
-void Shader::textureToShader()
+void Shader::textureToShader(int id)
 {
 	GLint uniformID = glGetUniformLocation(_shaderProgram, "textureUnitID");
-	glUniform1i(uniformID, 0);
+	glUniform1i(uniformID, id);
 }
 
 void Shader::update()
