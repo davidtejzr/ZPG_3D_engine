@@ -11,9 +11,3 @@ Scene* SceneFactory::initSecondScene(GLFWwindow* window)
     Scene* scene = new SecondScene(window);
     return scene;
 }
-
-Scene* SceneFactory::initThirdScene(GLFWwindow* window)
-{
-    Scene* scene = new ThirdScene(window);
-    return scene;
-}

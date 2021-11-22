@@ -10,7 +10,7 @@
 #include "ObjectManager.h"
 #include "Camera.h"
 #include "Controller.h"
-#include "TextureManager.h"
+#include "Texture.h"
 
 //My models
 #include "sphere.h"
@@ -19,7 +19,6 @@
 #include "tree.h"
 #include "ground.h"
 #include "plain.h"
-#include "skybox.h"
 
 class Scene
 {
