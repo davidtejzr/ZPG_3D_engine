@@ -35,3 +35,9 @@ Object* ObjectFactory::initPlain(Model* model, Shader* shader)
     Object* object = new PlainObject(shader, model);
     return object;
 }
+
+Object* ObjectFactory::initSkybox(Model* model, Shader* shader)
+{
+    Object* object = new SkyboxObject(shader, model);
+    return object;
+}
