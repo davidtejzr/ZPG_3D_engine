@@ -21,15 +21,15 @@ Application::Application()
 	//FirstScene - moje scena
 	//SecondScene - 4 kulicky
 
-	Scene* scene = SceneFactory::initFirstScene(_window);
-	//Scene* scene = SceneFactory::initSecondScene(_window);
+	_scene = SceneFactory::initFirstScene(_window);
+	//_scene = SceneFactory::initSecondScene(_window);
 
 	while (!glfwWindowShouldClose(_window))
 	{
 		// clear color and depth buffer
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		scene->renderScene();
+		_scene->renderScene();
 
 		// update other events like input handling
 		glfwPollEvents();
