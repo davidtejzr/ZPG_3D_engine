@@ -19,7 +19,6 @@
 #include "tree.h"
 #include "ground.h"
 #include "plain.h"
-#include "skybox.h"
 
 class Scene
 {
