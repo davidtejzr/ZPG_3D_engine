@@ -19,10 +19,15 @@
 #include <stdio.h>
 #include <string>
 #include <fstream>
+#include <vector>
 
-class Texture
+class TextureManager
 {
 public:
-	Texture();
+	TextureManager();
+	void loadTexture(const char* name);
+	void setTexture(int id);
+private:
+	std::vector<GLuint>* textures;
 };
 

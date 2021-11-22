@@ -31,7 +31,7 @@ public:
 	void projectionToShader(glm::mat4 projection);
 	void cameraPosToShader(glm::vec3 cameraPosition);
 	void lightPosToShader(glm::vec3 lightPosition);
-	void textureToShader();
+	void textureToShader(int id);
 	void update();
 private:
 	const char* _vertex_shader;
