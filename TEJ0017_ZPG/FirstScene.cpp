@@ -68,10 +68,10 @@ FirstScene::FirstScene(GLFWwindow* window)
 	//_objectManager->insertObject(ObjectFactory::initSkybox(model10, _shaderManager->getShader(0)));
 	//_objectManager->getObject(10)->getTransformations()->translate(-9.0f, 0.0f, 0.0f);
 
-	Model* model11 = new Model("Textures/tree.obj");
+	/*Model* model11 = new Model("Textures/tree.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model11, _shaderManager->getShader(3)));
 	_objectManager->getObject(10)->getTransformations()->translate(-4.0f, 0.0f, 0.0f);
-	_objectManager->getObject(10)->getTransformations()->scale(0.15f, 0.15f, 0.15f);
+	_objectManager->getObject(10)->getTransformations()->scale(0.15f, 0.15f, 0.15f);*/
 
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
 	_controller = Controller::getInstance(_camera);

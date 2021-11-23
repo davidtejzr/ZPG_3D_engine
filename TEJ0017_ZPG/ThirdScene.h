@@ -7,6 +7,6 @@ public:
 	ThirdScene(GLFWwindow* window);
 	void renderScene();
 private:
-	TextureManager textures;
+	TextureManager* _textures;
 };
 

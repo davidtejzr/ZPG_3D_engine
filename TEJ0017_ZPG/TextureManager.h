@@ -21,13 +21,15 @@
 #include <fstream>
 #include <vector>
 
+//My classes
+#include "Texture.h"
+
 class TextureManager
 {
 public:
 	TextureManager();
-	void loadTexture(const char* name);
-	void setTexture(int id);
+	Texture* getTexture(int id);
 private:
-	std::vector<GLuint>* textures;
+	std::vector<Texture>* _textures;
 };
 

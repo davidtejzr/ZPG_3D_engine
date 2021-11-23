@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "Tranformations.h"
 #include "Camera.h"
+#include "Texture.h"
 
 class Object
 {
@@ -13,5 +14,6 @@ protected:
 	Shader* _shader;
 	Model* _model;
 	Tranformations* _trans;
+	Texture* _texture;
 };
 

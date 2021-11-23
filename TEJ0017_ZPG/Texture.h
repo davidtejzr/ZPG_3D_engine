@@ -23,6 +23,10 @@
 class Texture
 {
 public:
-	Texture();
+	Texture(const char* fileName, int id);
+	int getId();
+	void setTexture();
+private:
+	int _id;
+	GLuint _texture;
 };
-
