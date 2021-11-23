@@ -1,10 +1,12 @@
 #version 400
 in vec4 ex_worldPosition;
 in vec4 ex_worldNormal;
+in vec2 uv;
 out vec4 frag_colour;
 
 uniform vec3 cameraPosition;
 uniform vec3 lightPosition;
+uniform sampler2D textureUnitID;
 
 void main(void)
 {
@@ -18,5 +20,5 @@ void main(void)
 	vec3 reflectDirection = reflect((-normalize(lightVector)), normalize(vec3(ex_worldNormal)));
 	float specular = pow(max(dot(cameraDirection, reflectDirection), 0.0f), 8) * 0.5f;
 
-	frag_colour = ambient + diffuse + specular;
+	frag_colour = (ambient + diffuse + specular) * texture(textureUnitID, uv);
 }

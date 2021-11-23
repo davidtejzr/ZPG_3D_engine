@@ -9,6 +9,7 @@ FirstScene::FirstScene(GLFWwindow* window)
 	//0 - Constant
 	//1 - Lambert
 	//2 - Phong
+	//3 - BLinn
 	_shaderManager = ShaderManager::getInstance();
 
 	//Model* model0 = new Model(ground, sizeof(ground));

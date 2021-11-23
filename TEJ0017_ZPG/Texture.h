@@ -24,8 +24,10 @@ class Texture
 {
 public:
 	Texture(const char* fileName, int id);
+	Texture(const char* xpos, const char* xneg, const char* ypos, const char* yneg, const char* zpos, const char* zneg, int id);
 	int getId();
 	void setTexture();
+	void setTextureCubemap();
 private:
 	int _id;
 	GLuint _texture;

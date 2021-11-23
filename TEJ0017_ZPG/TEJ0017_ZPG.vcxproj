@@ -149,6 +149,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="FirstScene.cpp" />
+    <ClCompile Include="FourthScene.cpp" />
     <ClCompile Include="GroundObject.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="CameraObserver.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="FirstScene.h" />
+    <ClInclude Include="FourthScene.h" />
     <ClInclude Include="ground.h" />
     <ClInclude Include="GroundObject.h" />
     <ClInclude Include="Init.h" />
@@ -216,6 +218,8 @@
     </None>
     <None Include="constant.frag" />
     <None Include="constant.vert" />
+    <None Include="cubemap_constant.frag" />
+    <None Include="cubemap_constant.vert" />
     <None Include="lambert.frag" />
     <None Include="lambert.vert" />
     <None Include="phong.frag" />

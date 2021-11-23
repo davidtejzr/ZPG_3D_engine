@@ -10,8 +10,8 @@
 #include "SuziSmoothObject.h"
 #include "GroundObject.h"
 #include "PlainObject.h"
-#include "SkyboxObject.h"
 #include "UniversalTriangleObject.h"
+#include "SkyboxObject.h"
 
 class ObjectFactory
 {
@@ -22,7 +22,7 @@ public:
 	static Object* initSuziSmooth(Model* model, Shader* shader);
 	static Object* initGround(Model* model, Shader* shader);
 	static Object* initPlain(Model* model, Shader* shader);
-	static Object* initSkybox(Model* model, Shader* shader);
 	static Object* initUniversalTriangle(Model* model, Shader* shader, Texture* texture);
+	static Object* initSkybox(Model* model, Shader* shader, Texture* texture);
 };
 

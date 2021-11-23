@@ -36,14 +36,14 @@ Object* ObjectFactory::initPlain(Model* model, Shader* shader)
     return object;
 }
 
-Object* ObjectFactory::initSkybox(Model* model, Shader* shader)
-{
-    Object* object = new SkyboxObject(shader, model);
-    return object;
-}
-
 Object* ObjectFactory::initUniversalTriangle(Model* model, Shader* shader, Texture* texture)
 {
     Object* object = new UniversalTriangleObject(shader, model, texture);
+    return object;
+}
+
+Object* ObjectFactory::initSkybox(Model* model, Shader* shader, Texture* texture)
+{
+    Object* object = new SkyboxObject(shader, model, texture);
     return object;
 }
