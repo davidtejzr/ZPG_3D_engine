@@ -16,24 +16,21 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 	_textures = new TextureManager();
 
 	Model* model0 = new Model("Textures/plane.obj");
-	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model0, _shaderManager->getShader(3), _textures->getTexture(3)));
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model0, _shaderManager->getShader(0), _textures->getTexture(3)));
 	_objectManager->getObject(0)->getTransformations()->scale(35.0f, 35.0f, 35.0f);
 
 	Model* model1 = new Model("Textures/skydome.obj");
-	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model1, _shaderManager->getShader(0), _textures->getTexture(1)));
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model1, _shaderManager->getShader(0), _textures->getTexture(0)));
 	_objectManager->getObject(1)->getTransformations()->scale(5.0f, 5.0f, 5.0f);
 
 	Model* model2 = new Model("Textures/building.obj");
-	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model2, _shaderManager->getShader(0), _textures->getTexture(0)));
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model2, _shaderManager->getShader(0), _textures->getTexture(1)));
 	_objectManager->getObject(2)->getTransformations()->translate(-15.0f, 0.0f, 5.0f);
 
-
-	std::vector<Model*> trees;
 	for (int i = 0; i < 5; i++)
 	{
 		Model* model = new Model("Textures/tree.obj");
-		trees.push_back(model);
-		_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model, _shaderManager->getShader(3), _textures->getTexture(1)));
+		_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model, _shaderManager->getShader(0), _textures->getTexture(2)));
 		_objectManager->getObject(i + 3)->getTransformations()->translate((1.0f + (i * 5)), 0.0f, 0.0f);
 		_objectManager->getObject(i + 3)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
 	}
