@@ -25,7 +25,21 @@ void ObjectManager::insertObject(Object* object)
 
 Object* ObjectManager::getObject(int id)
 {
-    return _objects->at(id);
+    try
+    {
+        return _objects->at(id);
+    }
+    catch (const std::exception&)
+    {
+
+    }
+
+    return nullptr;
+}
+
+void ObjectManager::removeObject(int id)
+{
+    _objects->erase(_objects->begin() + id);
 }
 
 int ObjectManager::getCount()

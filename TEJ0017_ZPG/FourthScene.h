@@ -8,5 +8,6 @@ public:
 	void renderScene();
 private:
 	TextureManager* _textures;
+	LightManager* _lights;
 };
 

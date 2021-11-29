@@ -152,6 +152,7 @@
     <ClCompile Include="FourthScene.cpp" />
     <ClCompile Include="GroundObject.cpp" />
     <ClCompile Include="Init.cpp" />
+    <ClCompile Include="LightManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="ground.h" />
     <ClInclude Include="GroundObject.h" />
     <ClInclude Include="Init.h" />
+    <ClInclude Include="LightManager.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
@@ -222,6 +224,8 @@
     <None Include="cubemap_constant.vert" />
     <None Include="lambert.frag" />
     <None Include="lambert.vert" />
+    <None Include="light_constant.frag" />
+    <None Include="light_constant.vert" />
     <None Include="phong.frag" />
     <None Include="phong.vert" />
   </ItemGroup>

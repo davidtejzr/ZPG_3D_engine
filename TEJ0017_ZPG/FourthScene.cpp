@@ -16,14 +16,30 @@ FourthScene::FourthScene(GLFWwindow* window)
 	//2 - Phong
 	//3 - Blinn
 	//4 - Cubemap constant
+	//5 - Light constant
 	_shaderManager = ShaderManager::getInstance();
 
 	//Texture textures;
 	_textures = new TextureManager();
+	_lights = new LightManager();
+
+	//Lights initialization
+	_lights->insertLight(glm::vec3(5.0f, 15.0f, 3.0f), glm::vec3(1.0f, 1.0f, 1.0f));
+	_lights->insertLight(glm::vec3(-25.0f, 2.0f, 3.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	//Objects initialization
+	Model* light1 = new Model(0, sphere, sizeof(sphere));
+	_objectManager->insertObject(ObjectFactory::initSphere(light1, _shaderManager->getShader(5), _lights->getLight(0)._color));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(_lights->getLight(0)._position.x, _lights->getLight(0)._position.y, _lights->getLight(0)._position.z);
+	nextObject++;
+
+	Model* light2 = new Model(0, sphere, sizeof(sphere));
+	_objectManager->insertObject(ObjectFactory::initSphere(light2, _shaderManager->getShader(5), _lights->getLight(1)._color));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(_lights->getLight(1)._position.x, _lights->getLight(1)._position.y, _lights->getLight(1)._position.z);
+	nextObject++;
 
 	Model* model0 = new Model("Objects/teren.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model0, _shaderManager->getShader(2), _textures->getTexture(4)));
-	//_objectManager->getObject(nextObject)->getTransformations()->scale(35.0f, 35.0f, 35.0f);
 	nextObject++;
 
 	Model* model1 = new Model("Objects/skybox.obj");
@@ -69,39 +85,41 @@ void FourthScene::renderScene()
 	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
 	_shaderManager->getShader(2)->update();
 
-	_shaderManager->getShader(2)->lightToShader("lights[0].position", glm::vec3(5.0, 10.0, 3.0));
-	_shaderManager->getShader(2)->lightToShader("lights[1].position", glm::vec3(-30.0, 2.0, 3.0));
-	_shaderManager->getShader(2)->lightToShader("lights[0].color", glm::vec3(1.0, 1.0, 1.0));
-	_shaderManager->getShader(2)->lightToShader("lights[1].color", glm::vec3(1.0, 0.0, 0.0));
+	_shaderManager->getShader(2)->lightToShader("lights[0].position", _lights->getLight(0)._position);
+	_shaderManager->getShader(2)->lightToShader("lights[1].position", _lights->getLight(1)._position);
+	_shaderManager->getShader(2)->lightToShader("lights[0].color", _lights->getLight(0)._color);
+	_shaderManager->getShader(2)->lightToShader("lights[1].color", _lights->getLight(1)._color);
 
 	_shaderManager->getShader(2)->lightsCountToShader(2);
 
 	//SkyBox motion
 	if (_camera->getPosition().x > x)
 	{
-		_objectManager->getObject(1)->getTransformations()->translate(0.001f, 0.0f, 0.0f);
+		_objectManager->getObject(3)->getTransformations()->translate(0.001f, 0.0f, 0.0f);
 		x = _camera->getPosition().x;
 	}
 	else if (_camera->getPosition().x < x)
 	{
-		_objectManager->getObject(1)->getTransformations()->translate(-0.001, 0.0f, 0.0f);
+		_objectManager->getObject(3)->getTransformations()->translate(-0.001, 0.0f, 0.0f);
 		x = _camera->getPosition().x;
 	}
 
 	if (_camera->getPosition().z > z)
 	{
-		_objectManager->getObject(1)->getTransformations()->translate(0.0f, 0.0f, 0.001f);
+		_objectManager->getObject(3)->getTransformations()->translate(0.0f, 0.0f, 0.001f);
 		z = _camera->getPosition().z;
 	}
 	else if (_camera->getPosition().z < z)
 	{
-		_objectManager->getObject(1)->getTransformations()->translate(0.0f, 0.0f, -0.001f);
+		_objectManager->getObject(3)->getTransformations()->translate(0.0f, 0.0f, -0.001f);
 		z = _camera->getPosition().z;
 	}
 
 
 	for (int i = 0; i < _objectManager->getCount(); i++)
 	{
-		_objectManager->getObject(i)->loopObject(_camera);
+		glStencilFunc(GL_ALWAYS, i, 0xFF);
+		if(_objectManager->getObject(i) != nullptr)
+			_objectManager->getObject(i)->loopObject(_camera);
 	}
 }

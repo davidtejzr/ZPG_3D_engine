@@ -2,9 +2,6 @@
 //Include GLEW
 #include <GL/glew.h>
 
-//Include GLFW  
-#include <GLFW/glfw3.h>  
-
 //Include GLM  
 #include <glm/vec3.hpp> // glm::vec3
 #include <glm/vec4.hpp> // glm::vec4
@@ -16,25 +13,21 @@
 
 //Include the standard C++ headers  
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
+#include <vector>
 
-#include "Camera.h"
-#include "ObjectManager.h"
-#include "UniversalTriangleObject.h"
+struct light
+{
+	glm::vec3 _position;
+	glm::vec3 _color;
+};
 
-class Controller
+class LightManager
 {
 public:
-	static Controller* getInstance(Camera* camera);
-	void checkInputs();
+	LightManager();
+	void insertLight(glm::vec3 position, glm::vec3 color);
+	light getLight(int id);
 private:
-	Controller(Camera* camera);
-	static Controller* _instance;
-	Camera* _camera;
-	float _speed = 0.1f;
-	float _sensitivity = 100.0f;
-	bool _firstClickRight = true;
-	bool _firstClickLeft = true;
+	std::vector<light>* _lights;
 };
 

@@ -34,6 +34,7 @@ public:
 	void textureToShader(int id);
 	void lightToShader(const char* varName, glm::vec3 value);
 	void lightsCountToShader(int count);
+	void colorToShader(glm::vec3 color);
 	void update();
 private:
 	const char* _vertex_shader;

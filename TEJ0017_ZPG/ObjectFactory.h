@@ -17,6 +17,7 @@ class ObjectFactory
 {
 public:
 	static Object* initSphere(Model* model, Shader* shader);
+	static Object* initSphere(Model* model, Shader* shader, glm::vec3 color);
 	static Object* initTree(Model* model, Shader* shader);
 	static Object* initSuziFlat(Model* model, Shader* shader);
 	static Object* initSuziSmooth(Model* model, Shader* shader);

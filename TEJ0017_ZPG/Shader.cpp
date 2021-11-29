@@ -77,6 +77,11 @@ void Shader::lightsCountToShader(int count)
 	glUniform1i(glGetUniformLocation(_shaderProgram, "lightsCount"), count);
 }
 
+void Shader::colorToShader(glm::vec3 color)
+{
+	glUniform3f(glGetUniformLocation(_shaderProgram, "lightColor"), color.x, color.y, color.z);
+}
+
 void Shader::update()
 {
 	Camera *cam = Camera::getInstance();

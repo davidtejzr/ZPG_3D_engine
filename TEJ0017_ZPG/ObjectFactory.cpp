@@ -6,6 +6,12 @@ Object* ObjectFactory::initSphere(Model* model, Shader* shader)
     return object;
 }
 
+Object* ObjectFactory::initSphere(Model* model, Shader* shader, glm::vec3 color)
+{
+    Object* object = new SphereObject(shader, model, color);
+    return object;
+}
+
 Object* ObjectFactory::initTree(Model* model, Shader* shader)
 {
     Object* object = new TreeObject(shader, model);
