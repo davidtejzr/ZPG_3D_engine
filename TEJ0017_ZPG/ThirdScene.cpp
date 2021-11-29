@@ -15,6 +15,10 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 
 	//Texture textures;
 	_textures = new TextureManager();
+	_lights = new LightManager();
+
+	//Lights initialization
+	_lights->insertLight(glm::vec3(5.0f, 15.0f, 3.0f), glm::vec3(1.0f, 1.0f, 1.0f));
 
 	Model* model0 = new Model("Objects/plane.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model0, _shaderManager->getShader(0), _textures->getTexture(3)));
@@ -31,7 +35,7 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 	for (int i = 0; i < 5; i++)
 	{
 		Model* model = new Model("Objects/tree.obj");
-		_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model, _shaderManager->getShader(0), _textures->getTexture(2)));
+		_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model, _shaderManager->getShader(2), _textures->getTexture(2)));
 		_objectManager->getObject(i + 3)->getTransformations()->translate((1.0f + (i * 5)), 0.0f, 0.0f);
 		_objectManager->getObject(i + 3)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
 	}
@@ -47,7 +51,12 @@ void ThirdScene::renderScene()
 	_camera->lookAt();
 	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
 	_shaderManager->getShader(3)->update();
-	_shaderManager->getShader(3)->lightPosToShader(_lightPosition);
+
+	_shaderManager->getShader(2)->lightToShader("lights[0].position", _lights->getLight(0)._position);
+	_shaderManager->getShader(2)->lightToShader("lights[0].color", _lights->getLight(0)._color);
+
+	_shaderManager->getShader(2)->lightsCountToShader(1);
+	//_shaderManager->getShader(3)->lightPosToShader(_lightPosition);
 
 	for (int i = 0; i < _objectManager->getCount(); i++)
 	{

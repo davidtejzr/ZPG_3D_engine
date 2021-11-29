@@ -12,6 +12,7 @@
 #include "PlainObject.h"
 #include "UniversalTriangleObject.h"
 #include "SkyboxObject.h"
+#include "TerrainObject.h"
 
 class ObjectFactory
 {
@@ -24,6 +25,7 @@ public:
 	static Object* initGround(Model* model, Shader* shader);
 	static Object* initPlain(Model* model, Shader* shader);
 	static Object* initUniversalTriangle(Model* model, Shader* shader, Texture* texture);
+	static Object* initTerrain(Model* model, Shader* shader, Texture* texture);
 	static Object* initSkybox(Model* model, Shader* shader, Texture* texture);
 };
 

@@ -2,11 +2,11 @@
 
 float x = 0.0f;
 float z = 0.0f;
+int nextObject = 0;
 
 FourthScene::FourthScene(GLFWwindow* window)
 {
 	_window = window;
-	int nextObject = 0;
 	_objectManager = ObjectManager::getInstance();
 
 
@@ -39,7 +39,7 @@ FourthScene::FourthScene(GLFWwindow* window)
 	nextObject++;
 
 	Model* model0 = new Model("Objects/teren.obj");
-	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model0, _shaderManager->getShader(2), _textures->getTexture(4)));
+	_objectManager->insertObject(ObjectFactory::initTerrain(model0, _shaderManager->getShader(2), _textures->getTexture(4)));
 	nextObject++;
 
 	Model* model1 = new Model("Objects/skybox.obj");
@@ -80,7 +80,7 @@ FourthScene::FourthScene(GLFWwindow* window)
 
 void FourthScene::renderScene()
 {
-	_controller->checkInputs();
+	_controller->checkInputs(_textures);
 	_camera->lookAt();
 	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
 	_shaderManager->getShader(2)->update();

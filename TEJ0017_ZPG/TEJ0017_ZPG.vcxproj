@@ -167,6 +167,7 @@
     <ClCompile Include="SphereObject.cpp" />
     <ClCompile Include="SuziFlatObject.cpp" />
     <ClCompile Include="SuziSmoothObject.cpp" />
+    <ClCompile Include="TerrainObject.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="ThirdScene.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="SuziSmoothObject.h" />
     <ClInclude Include="suzi_flat.h" />
     <ClInclude Include="suzi_smooth.h" />
+    <ClInclude Include="TerrainObject.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="ThirdScene.h" />

@@ -48,6 +48,12 @@ Object* ObjectFactory::initUniversalTriangle(Model* model, Shader* shader, Textu
     return object;
 }
 
+Object* ObjectFactory::initTerrain(Model* model, Shader* shader, Texture* texture)
+{
+    Object* object = new TerrainObject(shader, model, texture);
+    return object;
+}
+
 Object* ObjectFactory::initSkybox(Model* model, Shader* shader, Texture* texture)
 {
     Object* object = new SkyboxObject(shader, model, texture);
