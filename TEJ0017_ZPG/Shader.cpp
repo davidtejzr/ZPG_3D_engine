@@ -67,6 +67,16 @@ void Shader::textureToShader(int id)
 	glUniform1i(uniformID, id);
 }
 
+void Shader::lightToShader(const char* varName, glm::vec3 value)
+{
+	glUniform3f(glGetUniformLocation(_shaderProgram, varName), value.x, value.y, value.z);
+}
+
+void Shader::lightsCountToShader(int count)
+{
+	glUniform1i(glGetUniformLocation(_shaderProgram, "lightsCount"), count);
+}
+
 void Shader::update()
 {
 	Camera *cam = Camera::getInstance();

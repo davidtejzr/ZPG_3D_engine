@@ -6,6 +6,7 @@ float z = 0.0f;
 FourthScene::FourthScene(GLFWwindow* window)
 {
 	_window = window;
+	int nextObject = 0;
 	_objectManager = ObjectManager::getInstance();
 
 
@@ -22,22 +23,38 @@ FourthScene::FourthScene(GLFWwindow* window)
 
 	Model* model0 = new Model("Objects/teren.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model0, _shaderManager->getShader(2), _textures->getTexture(4)));
-	//_objectManager->getObject(0)->getTransformations()->scale(35.0f, 35.0f, 35.0f);
+	//_objectManager->getObject(nextObject)->getTransformations()->scale(35.0f, 35.0f, 35.0f);
+	nextObject++;
 
 	Model* model1 = new Model("Objects/skybox.obj");
 	_objectManager->insertObject(ObjectFactory::initSkybox(model1, _shaderManager->getShader(4), _textures->getTexture(5)));
-	_objectManager->getObject(1)->getTransformations()->scale(100.0f, 100.0f, 100.0f);
+	_objectManager->getObject(nextObject)->getTransformations()->scale(100.0f, 100.0f, 100.0f);
+	nextObject++;
 
 	Model* model2 = new Model("Objects/building.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model2, _shaderManager->getShader(2), _textures->getTexture(1)));
-	_objectManager->getObject(2)->getTransformations()->translate(-15.0f, 0.0f, 5.0f);
+	_objectManager->getObject(nextObject)->getTransformations()->translate(-15.0f, 0.0f, 5.0f);
+	nextObject++;
 
-	for (int i = 0; i < 5; i++)
+	for (int j = 0; j < 5; j++)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			Model* model = new Model("Objects/tree.obj");
+			_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model, _shaderManager->getShader(2), _textures->getTexture(2)));
+			_objectManager->getObject(nextObject)->getTransformations()->translate((1.0f + (i * 5)), 0.0f, (3.0f * j));
+			_objectManager->getObject(nextObject)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
+			nextObject++;
+		}
+	}
+
+	for (int i = 0; i < 3; i++)
 	{
 		Model* model = new Model("Objects/tree.obj");
 		_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model, _shaderManager->getShader(2), _textures->getTexture(2)));
-		_objectManager->getObject(i + 3)->getTransformations()->translate((1.0f + (i * 5)), 0.0f, 0.0f);
-		_objectManager->getObject(i + 3)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
+		_objectManager->getObject(nextObject)->getTransformations()->translate(-30.0f, 0.0f, (2.0f + (i * 5)));
+		_objectManager->getObject(nextObject)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
+		nextObject++;
 	}
 
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
@@ -50,8 +67,14 @@ void FourthScene::renderScene()
 	_controller->checkInputs();
 	_camera->lookAt();
 	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
-	_shaderManager->getShader(3)->update();
-	_shaderManager->getShader(3)->lightPosToShader(_lightPosition);
+	_shaderManager->getShader(2)->update();
+
+	_shaderManager->getShader(2)->lightToShader("lights[0].position", glm::vec3(5.0, 10.0, 3.0));
+	_shaderManager->getShader(2)->lightToShader("lights[1].position", glm::vec3(-30.0, 2.0, 3.0));
+	_shaderManager->getShader(2)->lightToShader("lights[0].color", glm::vec3(1.0, 1.0, 1.0));
+	_shaderManager->getShader(2)->lightToShader("lights[1].color", glm::vec3(1.0, 0.0, 0.0));
+
+	_shaderManager->getShader(2)->lightsCountToShader(2);
 
 	//SkyBox motion
 	if (_camera->getPosition().x > x)

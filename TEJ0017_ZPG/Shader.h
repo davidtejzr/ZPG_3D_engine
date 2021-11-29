@@ -32,6 +32,8 @@ public:
 	void cameraPosToShader(glm::vec3 cameraPosition);
 	void lightPosToShader(glm::vec3 lightPosition);
 	void textureToShader(int id);
+	void lightToShader(const char* varName, glm::vec3 value);
+	void lightsCountToShader(int count);
 	void update();
 private:
 	const char* _vertex_shader;
