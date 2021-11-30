@@ -9,6 +9,8 @@ ShaderManager::ShaderManager()
     _shaders->push_back(Shader("lambert.vert", "lambert.frag"));
     _shaders->push_back(Shader("phong.vert", "phong.frag"));
     _shaders->push_back(Shader("blinn.vert", "blinn.frag"));
+    _shaders->push_back(Shader("cubemap_constant.vert", "cubemap_constant.frag"));
+    _shaders->push_back(Shader("light_constant.vert", "light_constant.frag"));
 }
 
 ShaderManager* ShaderManager::getInstance()

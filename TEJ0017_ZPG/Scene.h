@@ -11,6 +11,7 @@
 #include "Camera.h"
 #include "Controller.h"
 #include "TextureManager.h"
+#include "LightManager.h"
 
 //My models
 #include "sphere.h"

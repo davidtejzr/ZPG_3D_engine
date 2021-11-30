@@ -20,11 +20,13 @@ Application::Application()
 	//Prepinani scen
 	//FirstScene - moje scena
 	//SecondScene - 4 kulicky
-	//ThirdScene - SkyDome + Buildings + Trees
+	//ThirdScene - SkyDome + Building + Trees
+	//FourthScene - SkyBox + Terrain + Building + Trees
 
 	//_scene = SceneFactory::initFirstScene(_window);
 	//_scene = SceneFactory::initSecondScene(_window);
-	_scene = SceneFactory::initThirdScene(_window);
+	//_scene = SceneFactory::initThirdScene(_window);
+	_scene = SceneFactory::initFourthScene(_window);
 
 	while (!glfwWindowShouldClose(_window))
 	{

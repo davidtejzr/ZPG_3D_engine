@@ -1,10 +1,10 @@
 #pragma once
 #include "Scene.h"
 
-class ThirdScene : public Scene
+class FourthScene : public Scene
 {
 public:
-	ThirdScene(GLFWwindow* window);
+	FourthScene(GLFWwindow* window);
 	void renderScene();
 private:
 	TextureManager* _textures;

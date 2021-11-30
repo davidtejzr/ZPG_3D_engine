@@ -15,15 +15,22 @@
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
 //Include the standard C++ headers  
+#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 
 #include "Camera.h"
+#include "ObjectManager.h"
+#include "UniversalTriangleObject.h"
+#include "ObjectFactory.h"
+#include "TextureManager.h"
+#include "ShaderManager.h"
 
 class Controller
 {
 public:
 	static Controller* getInstance(Camera* camera);
+	void checkInputs(TextureManager* tm);
 	void checkInputs();
 private:
 	Controller(Camera* camera);
@@ -31,6 +38,7 @@ private:
 	Camera* _camera;
 	float _speed = 0.1f;
 	float _sensitivity = 100.0f;
-	bool _firstClick = true;
+	bool _firstClickRight = true;
+	bool _firstClickLeft = true;
 };
 

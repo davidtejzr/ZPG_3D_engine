@@ -44,6 +44,10 @@ Init::Init()
 	glViewport(0, 0, this->_width, this->_height);
 
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+
+	glEnable(GL_STENCIL_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 }
 
 Init* Init::getInstance()

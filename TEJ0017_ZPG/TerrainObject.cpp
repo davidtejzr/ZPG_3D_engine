@@ -1,6 +1,6 @@
-#include "UniversalTriangleObject.h"
+#include "TerrainObject.h"
 
-UniversalTriangleObject::UniversalTriangleObject(Shader* shader, Model* model, Texture* texture)
+TerrainObject::TerrainObject(Shader* shader, Model* model, Texture* texture)
 {
 	_shader = shader;
 	_model = model;
@@ -8,7 +8,7 @@ UniversalTriangleObject::UniversalTriangleObject(Shader* shader, Model* model, T
 	_texture = texture;
 }
 
-void UniversalTriangleObject::loopObject(Camera* camera)
+void TerrainObject::loopObject(Camera* camera)
 {
 	_shader->useShader();
 	_shader->modelToShader(_trans->getModel());

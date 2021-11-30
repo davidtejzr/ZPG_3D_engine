@@ -111,6 +111,15 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FourthScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LightManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainObject.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -215,6 +224,15 @@
     <ClInclude Include="Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FourthScene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LightManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="constant.vert">
@@ -240,6 +258,18 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="blinn.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="cubemap_constant.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="cubemap_constant.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="light_constant.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="light_constant.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

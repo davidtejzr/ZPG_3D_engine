@@ -12,6 +12,7 @@ public:
 	static ObjectManager* getInstance();
 	void insertObject(Object* object);
 	Object* getObject(int id);
+	void removeObject(int id);
 	int getCount();
 private:
 	ObjectManager();

@@ -10,19 +10,22 @@
 #include "SuziSmoothObject.h"
 #include "GroundObject.h"
 #include "PlainObject.h"
-#include "SkyboxObject.h"
 #include "UniversalTriangleObject.h"
+#include "SkyboxObject.h"
+#include "TerrainObject.h"
 
 class ObjectFactory
 {
 public:
 	static Object* initSphere(Model* model, Shader* shader);
+	static Object* initSphere(Model* model, Shader* shader, glm::vec3 color);
 	static Object* initTree(Model* model, Shader* shader);
 	static Object* initSuziFlat(Model* model, Shader* shader);
 	static Object* initSuziSmooth(Model* model, Shader* shader);
 	static Object* initGround(Model* model, Shader* shader);
 	static Object* initPlain(Model* model, Shader* shader);
-	static Object* initSkybox(Model* model, Shader* shader);
 	static Object* initUniversalTriangle(Model* model, Shader* shader, Texture* texture);
+	static Object* initTerrain(Model* model, Shader* shader, Texture* texture);
+	static Object* initSkybox(Model* model, Shader* shader, Texture* texture);
 };
 
