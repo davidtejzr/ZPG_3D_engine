@@ -23,9 +23,16 @@ FourthScene::FourthScene(GLFWwindow* window)
 	_textures = new TextureManager();
 	_lights = new LightManager();
 
+	Model* model0 = new Model("Objects/skybox.obj");
+	_objectManager->insertObject(ObjectFactory::initSkybox(model0, _shaderManager->getShader(4), _textures->getTexture(5)));
+	_objectManager->getObject(nextObject)->getTransformations()->scale(10.0f, 10.0f, 10.0f);
+	nextObject++;
+
+
 	//Lights initialization
 	_lights->insertLight(glm::vec3(5.0f, 15.0f, 3.0f), glm::vec3(1.0f, 1.0f, 1.0f));
 	_lights->insertLight(glm::vec3(-25.0f, 2.0f, 3.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
 
 	//Objects initialization
 	Model* light1 = new Model(0, sphere, sizeof(sphere));
@@ -38,13 +45,8 @@ FourthScene::FourthScene(GLFWwindow* window)
 	_objectManager->getObject(nextObject)->getTransformations()->translate(_lights->getLight(1)._position.x, _lights->getLight(1)._position.y, _lights->getLight(1)._position.z);
 	nextObject++;
 
-	Model* model0 = new Model("Objects/teren.obj");
-	_objectManager->insertObject(ObjectFactory::initTerrain(model0, _shaderManager->getShader(2), _textures->getTexture(4)));
-	nextObject++;
-
-	Model* model1 = new Model("Objects/skybox.obj");
-	_objectManager->insertObject(ObjectFactory::initSkybox(model1, _shaderManager->getShader(4), _textures->getTexture(5)));
-	_objectManager->getObject(nextObject)->getTransformations()->scale(100.0f, 100.0f, 100.0f);
+	Model* model1 = new Model("Objects/teren.obj");
+	_objectManager->insertObject(ObjectFactory::initTerrain(model1, _shaderManager->getShader(2), _textures->getTexture(4)));
 	nextObject++;
 
 	Model* model2 = new Model("Objects/building.obj");
@@ -93,27 +95,7 @@ void FourthScene::renderScene()
 	_shaderManager->getShader(2)->lightsCountToShader(2);
 
 	//SkyBox motion
-	if (_camera->getPosition().x > x)
-	{
-		_objectManager->getObject(3)->getTransformations()->translate(0.001f, 0.0f, 0.0f);
-		x = _camera->getPosition().x;
-	}
-	else if (_camera->getPosition().x < x)
-	{
-		_objectManager->getObject(3)->getTransformations()->translate(-0.001, 0.0f, 0.0f);
-		x = _camera->getPosition().x;
-	}
-
-	if (_camera->getPosition().z > z)
-	{
-		_objectManager->getObject(3)->getTransformations()->translate(0.0f, 0.0f, 0.001f);
-		z = _camera->getPosition().z;
-	}
-	else if (_camera->getPosition().z < z)
-	{
-		_objectManager->getObject(3)->getTransformations()->translate(0.0f, 0.0f, -0.001f);
-		z = _camera->getPosition().z;
-	}
+	_objectManager->getObject(0)->getTransformations()->staticTranslate(_camera->getPosition().x, _camera->getPosition().y, _camera->getPosition().z);
 
 
 	for (int i = 0; i < _objectManager->getCount(); i++)
@@ -136,9 +118,9 @@ void FourthScene::renderScene()
 			glm::vec4 parameters = glm::vec4(t * t * t, t * t, t, 1.0f);
 
 			glm::vec3 p = parameters * A * glm::transpose(B);
-			std::cout << "t = " << t << " P=[ " << p[0] << ", " << p[1] << ", " << p[2] << "]" << std::endl;
+			//std::cout << "t = " << t << " P=[ " << p[0] << ", " << p[1] << ", " << p[2] << "]" << std::endl;
 
-			_objectManager->getObject(i)->getTransformations()->translate(p.x, p.y, p.z);
+			//_objectManager->getObject(i)->getTransformations()->staticTranslate(p.x, p.y, p.z);
 			
 		}
 	}

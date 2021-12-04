@@ -132,7 +132,7 @@ void Controller::checkInputs(TextureManager* tm)
 					//pridavani objektu obcas zpusobuje pady, musim jeste doresit...
 					/*Model* model = new Model("Objects/tree.obj");
 					om->insertObject(ObjectFactory::initUniversalTriangle(model, sm->getShader(2), tm->getTexture(2)));
-					om->getObject(om->getCount()-1)->getTransformations()->translate(pos.x, 0.0f, pos.z);
+					om->getObject(om->getCount()-1)->getTransformations()->staticTranslate(pos.x, 0.0f, pos.z);
 					om->getObject(om->getCount()-1)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
 					printf("%d\n", om->getCount());*/
 				}

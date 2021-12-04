@@ -26,7 +26,7 @@ public:
 	void rotate(float x, float y, float z);
 	void translate(float x, float y, float z);
 	void scale(float x, float y, float z);
-	//PRIDAT translaci bez posunu
+	void staticTranslate(float x, float y, float z);
 	glm::mat4 getModel();
 private:
 	glm::mat4 _model;
