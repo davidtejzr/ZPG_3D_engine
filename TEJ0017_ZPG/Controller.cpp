@@ -103,9 +103,6 @@ void Controller::checkInputs(TextureManager* tm)
 				GLfloat depth;
 				GLuint index;
 
-				//GLint x = (GLint)x;
-				//GLint y = (GLint)y;
-
 				int newy = _camera->_height - mouseY;
 
 				glReadPixels(mouseX, newy, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, color);
@@ -123,7 +120,6 @@ void Controller::checkInputs(TextureManager* tm)
 				}
 				else
 				{
-					//Mùžeme vypoèíst pozici v globálním souøadném systému.  
 					glm::vec3 screenX = glm::vec3(mouseX, newy, depth);
 					glm::mat4 view = _camera->getView();
 					glm::mat4 projection = _camera->getProjection();

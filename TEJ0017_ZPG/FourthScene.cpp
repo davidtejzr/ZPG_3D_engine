@@ -121,5 +121,25 @@ void FourthScene::renderScene()
 		glStencilFunc(GL_ALWAYS, i, 0xFF);
 		if(_objectManager->getObject(i) != nullptr)
 			_objectManager->getObject(i)->loopObject(_camera);
+
+		if (i == 20)
+		{
+			glm::mat4 A = glm::mat4(glm::vec4(-1.0, 3.0, -3.0, 1.0), glm::vec4(3.0, -6.0, 3.0, 0), glm::vec4(-3.0, 3.0, 0, 0), glm::vec4(1, 0, 0, 0));
+
+			//std::cout << glm::to_string(A) << std::endl;
+
+			glm::mat4x3 B = glm::mat4x3(glm::vec3(0, 0, 0), glm::vec3(2, 2, 0), glm::vec3(4, 4, 0), glm::vec3(6, 0, 0));
+
+
+			float t = 0.5f;
+
+			glm::vec4 parameters = glm::vec4(t * t * t, t * t, t, 1.0f);
+
+			glm::vec3 p = parameters * A * glm::transpose(B);
+			std::cout << "t = " << t << " P=[ " << p[0] << ", " << p[1] << ", " << p[2] << "]" << std::endl;
+
+			_objectManager->getObject(i)->getTransformations()->translate(p.x, p.y, p.z);
+			
+		}
 	}
 }
