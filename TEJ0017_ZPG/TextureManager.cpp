@@ -10,6 +10,7 @@ TextureManager::TextureManager()
 	_textures->push_back(Texture("Textures/test.png", 3));
 	_textures->push_back(Texture("Textures/grass.png", 4));
 	_textures->push_back(Texture("Textures/cubemap/posx.jpg", "Textures/cubemap/negx.jpg", "Textures/cubemap/posy.jpg", "Textures/cubemap/negy.jpg", "Textures/cubemap/posz.jpg", "Textures/cubemap/negz.jpg", 5));
+	_textures->push_back(Texture("Textures/zombie.png", 6));
 }
 
 Texture* TextureManager::getTexture(int id)

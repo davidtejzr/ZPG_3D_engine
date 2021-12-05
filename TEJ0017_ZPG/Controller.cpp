@@ -120,21 +120,23 @@ void Controller::checkInputs(TextureManager* tm)
 				}
 				else
 				{
-					glm::vec3 screenX = glm::vec3(mouseX, newy, depth);
-					glm::mat4 view = _camera->getView();
-					glm::mat4 projection = _camera->getProjection();
-					glm::vec4 viewPort = glm::vec4(0, 0, _camera->_width, _camera->_height);
-					glm::vec3 pos = glm::unProject(screenX, view, projection, viewPort);
+					if(index == 3)
+					{
+						glm::vec3 screenX = glm::vec3(mouseX, newy, depth);
+						glm::mat4 view = glm::lookAt(_camera->_position, _camera->_position + _camera->_orientation, _camera->_up);
+						glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)(_camera->_width / _camera->_height), 0.1f, 100.0f);
+						glm::vec4 viewPort = glm::vec4(0, 0, _camera->_width, _camera->_height);
+						glm::vec3 pos = glm::unProject(screenX, view, projection, viewPort);
 
-					printf("unProject [%f,%f,%f]\n", pos.x, pos.y, pos.z);
+						printf("unProject [%f,%f,%f]\n", pos.x, pos.y, pos.z);
 
-
-					//pridavani objektu obcas zpusobuje pady, musim jeste doresit...
-					/*Model* model = new Model("Objects/tree.obj");
-					om->insertObject(ObjectFactory::initUniversalTriangle(model, sm->getShader(2), tm->getTexture(2)));
-					om->getObject(om->getCount()-1)->getTransformations()->staticTranslate(pos.x, 0.0f, pos.z);
-					om->getObject(om->getCount()-1)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
-					printf("%d\n", om->getCount());*/
+						//pridavani objektu obcas zpusobuje pady, musim jeste doresit...
+						Model* model = new Model("Objects/tree.obj");
+						om->insertObject(ObjectFactory::initUniversalTriangle(model, sm->getShader(2), tm->getTexture(2)));
+						om->getObject(om->getCount()-1)->getTransformations()->translate(pos.x, pos.y, pos.z);
+						om->getObject(om->getCount()-1)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
+						printf("%d\n", om->getCount());
+					}
 				}
 			}
 		}

@@ -40,6 +40,7 @@ Object* ObjectManager::getObject(int id)
 void ObjectManager::removeObject(int id)
 {
     _objects->erase(_objects->begin() + id);
+    _count--;
 }
 
 int ObjectManager::getCount()

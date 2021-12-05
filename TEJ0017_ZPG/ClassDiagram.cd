@@ -28,7 +28,7 @@
   <Class Name="Controller" Collapsed="true">
     <Position X="11" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAQAAAAAAAAAAAAAAAAAAAASABAEACCAAAAA=</HashCode>
+      <HashCode>IAAEQAAAAQAAAAAAAAAAAAAAAAAAAASABAEAACAAAAA=</HashCode>
       <FileName>Controller.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -52,26 +52,26 @@
   <Class Name="Object" Collapsed="true">
     <Position X="6.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAIAAAAAgAAAAAAAAAAAAAAgAAAAAAEAAA=</HashCode>
+      <HashCode>QAAAAAAAAQAIAAAAAgAAAAABAAAAAAAAgAAAAAAEAAA=</HashCode>
       <FileName>Object.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_shader" />
       <Field Name="_model" />
       <Field Name="_trans" />
+      <Field Name="_shader" />
     </ShowAsAssociation>
   </Class>
   <Class Name="ObjectFactory" Collapsed="true">
     <Position X="4.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgEIAAAAQAAACABAACAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgEIAAAAQAAACABAACAAAkAAAAAAAAA=</HashCode>
       <FileName>ObjectFactory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectManager" Collapsed="true">
     <Position X="8.25" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAQAAAAAAACAAAAAAAAAAAAQAIACAACAEAAA=</HashCode>
+      <HashCode>AAAEAAAAAQAAAAAAACAAACAAAAAAAAQAIACAACAEAAA=</HashCode>
       <FileName>ObjectManager.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -94,7 +94,7 @@
   <Class Name="SceneFactory" Collapsed="true">
     <Position X="6.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAAAAAAAAQAAACAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SceneFactory.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -109,7 +109,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>QAEEAAAwAAAAgAAEFAAAAAAAAAAQAAAgAAAIIAAUAAA=</HashCode>
+      <HashCode>QAEEAAAwAAEAgAAEFQAAAAAAAAAQAAAgABAIIAAUAAA=</HashCode>
       <FileName>Shader.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -126,14 +126,14 @@
   <Class Name="Texture" Collapsed="true">
     <Position X="2.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABEAAAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAA=</HashCode>
+      <HashCode>AgAEAAAAAQAAAAAAAABAAAAAAAAAAAAgAAIAAAAAAAA=</HashCode>
       <FileName>Texture.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tranformations" Collapsed="true">
     <Position X="10" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAAAAAgAQAAACAAAAAAAAAAAAAAAAJAA=</HashCode>
+      <HashCode>AAAAAIAAAAAAAAAAAgAQAAACAABAAAAAAAAAAAAAJAA=</HashCode>
       <FileName>Tranformations.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -154,7 +154,7 @@
   <Class Name="SphereObject" Collapsed="true">
     <Position X="7.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>SphereObject.h</FileName>
     </TypeIdentifier>
   </Class>

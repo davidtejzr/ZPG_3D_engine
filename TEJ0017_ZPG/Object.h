@@ -4,6 +4,7 @@
 #include "Tranformations.h"
 #include "Camera.h"
 #include "Texture.h"
+#include "Bezier.h"
 
 class Object
 {
@@ -15,5 +16,6 @@ protected:
 	Model* _model;
 	Tranformations* _trans;
 	Texture* _texture;
+	Bezier* _bezier = nullptr;
 };
 
