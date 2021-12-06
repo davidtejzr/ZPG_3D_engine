@@ -34,6 +34,7 @@ public:
 	glm::vec3 _up = glm::vec3(0.0f, 1.0f, 0.0f);
 	int _width = 0;
 	int _height = 0;
+	void setWindowResolutions(int width, int height);
 
 private:
 	Camera(GLFWwindow* window, glm::vec3 position);
