@@ -148,6 +148,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Bezier.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraObserver.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="FourthScene.cpp" />

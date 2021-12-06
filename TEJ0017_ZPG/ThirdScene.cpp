@@ -12,6 +12,7 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 	//2 - Phong
 	//3 - Blinn
 	_shaderManager = ShaderManager::getInstance();
+	_cameraObserver = new CameraObserver();
 
 	//Texture textures;
 	_textures = new TextureManager();
@@ -50,8 +51,7 @@ void ThirdScene::renderScene()
 	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs();
 	_camera->lookAt();
-	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
-	_shaderManager->getShader(3)->update();
+	_cameraObserver->notify();
 
 	_shaderManager->getShader(2)->lightToShader("lights[0].position", _lights->getLight(0)._position);
 	_shaderManager->getShader(2)->lightToShader("lights[0].color", _lights->getLight(0)._color);

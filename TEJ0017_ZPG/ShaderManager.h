@@ -11,9 +11,11 @@ class ShaderManager
 public:
 	static ShaderManager* getInstance();
 	Shader* getShader(int id);
+	int getCount();
 private:
 	ShaderManager();
 	static ShaderManager* _instance;
 	std::vector<Shader>* _shaders;
+	int _count = 0;
 };
 

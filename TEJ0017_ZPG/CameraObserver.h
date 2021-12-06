@@ -1,7 +1,11 @@
 #pragma once
+#include "ShaderManager.h"
 
 class CameraObserver
 {
 public:
-	virtual void update() = 0;
+	CameraObserver();
+	void notify();
+private:
+	ShaderManager* _shaderManager;
 };

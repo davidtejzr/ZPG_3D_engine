@@ -16,12 +16,10 @@
 #include <stdio.h>
 #include <string>
 #include <fstream>
-#include "CameraObserver.h"
 #include "Camera.h"
 
-
 class Camera;
-class Shader : public CameraObserver
+class Shader
 {
 public:
 	Shader(const char* vertex_shader_filename, const char* fragment_shader_filename);

@@ -12,6 +12,7 @@
 #include "Controller.h"
 #include "TextureManager.h"
 #include "LightManager.h"
+#include "CameraObserver.h"
 
 //My models
 #include "sphere.h"
@@ -39,6 +40,7 @@ protected:
 	ShaderManager* _shaderManager;
 	Camera* _camera;
 	Controller* _controller;
+	CameraObserver* _cameraObserver;
 	glm::vec3 _lightPosition = glm::vec3(10.0f, 10.0f, 10.0f);
 };
 

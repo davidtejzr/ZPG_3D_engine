@@ -9,7 +9,6 @@ FourthScene::FourthScene(GLFWwindow* window)
 	_window = window;
 	_objectManager = ObjectManager::getInstance();
 
-
 	//Prepinani shaderu
 	//0 - Constant
 	//1 - Lambert
@@ -18,8 +17,8 @@ FourthScene::FourthScene(GLFWwindow* window)
 	//4 - Cubemap constant
 	//5 - Light constant
 	_shaderManager = ShaderManager::getInstance();
+	_cameraObserver = new CameraObserver();
 
-	//Texture textures;
 	_textures = new TextureManager();
 	_lights = new LightManager();
 
@@ -97,7 +96,6 @@ FourthScene::FourthScene(GLFWwindow* window)
 	_controller = Controller::getInstance(_camera);
 	_lightPosition = glm::vec3(10.0f, 10.0f, 10.0f);
 
-
 }
 
 void FourthScene::renderScene()
@@ -106,7 +104,8 @@ void FourthScene::renderScene()
 	_controller->checkInputs(_textures);
 	_camera->lookAt();
 	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
-	_shaderManager->getShader(2)->update();
+	//_shaderManager->getShader(2)->update();
+	_cameraObserver->notify();
 
 	_shaderManager->getShader(2)->lightToShader("lights[0].position", _lights->getLight(0)._position);
 	_shaderManager->getShader(2)->lightToShader("lights[1].position", _lights->getLight(1)._position);

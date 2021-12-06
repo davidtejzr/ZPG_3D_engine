@@ -11,6 +11,7 @@ FirstScene::FirstScene(GLFWwindow* window)
 	//2 - Phong
 	//3 - BLinn
 	_shaderManager = ShaderManager::getInstance();
+	_cameraObserver = new CameraObserver();
 
 	//Model* model0 = new Model(ground, sizeof(ground));
 	//_objectManager->insertObject(ObjectFactory::initGround(model0, shaderManager.getShader(1)));
@@ -88,8 +89,8 @@ void FirstScene::renderScene()
 	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs();
 	_camera->lookAt();
-	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
-	_shaderManager->getShader(3)->update();
+	_cameraObserver->notify();
+
 	_shaderManager->getShader(3)->lightPosToShader(_lightPosition);
 
 	_objectManager->getObject(5)->getTransformations()->rotate(0.0f, 1.0f, 0.0f);
