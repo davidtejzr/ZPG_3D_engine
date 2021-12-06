@@ -53,8 +53,8 @@ void ThirdScene::renderScene()
 	_camera->lookAt();
 	_cameraObserver->notify();
 
-	_shaderManager->getShader(2)->lightToShader("lights[0].position", _lights->getLight(0)._position);
-	_shaderManager->getShader(2)->lightToShader("lights[0].color", _lights->getLight(0)._color);
+	_shaderManager->getShader(2)->lightToShader("pointlights[0].position", _lights->getLight(0)._position);
+	_shaderManager->getShader(2)->lightToShader("pointlights[0].color", _lights->getLight(0)._color);
 
 	_shaderManager->getShader(2)->lightsCountToShader(1);
 	//_shaderManager->getShader(3)->lightPosToShader(_lightPosition);

@@ -72,6 +72,11 @@ void Shader::lightToShader(const char* varName, glm::vec3 value)
 	glUniform3f(glGetUniformLocation(_shaderProgram, varName), value.x, value.y, value.z);
 }
 
+void Shader::lightToShaderFloat(const char* varName, float value)
+{
+	glUniform1f(glGetUniformLocation(_shaderProgram, varName), value);
+}
+
 void Shader::lightsCountToShader(int count)
 {
 	glUniform1i(glGetUniformLocation(_shaderProgram, "lightsCount"), count);

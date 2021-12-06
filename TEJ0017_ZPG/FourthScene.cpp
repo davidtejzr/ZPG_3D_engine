@@ -107,16 +107,27 @@ void FourthScene::renderScene()
 	//_shaderManager->getShader(2)->update();
 	_cameraObserver->notify();
 
-	_shaderManager->getShader(2)->lightToShader("lights[0].position", _lights->getLight(0)._position);
-	_shaderManager->getShader(2)->lightToShader("lights[1].position", _lights->getLight(1)._position);
-	_shaderManager->getShader(2)->lightToShader("lights[0].color", _lights->getLight(0)._color);
-	_shaderManager->getShader(2)->lightToShader("lights[1].color", _lights->getLight(1)._color);
+	_shaderManager->getShader(2)->lightToShader("pointlights[0].position", _lights->getLight(0)._position);
+	_shaderManager->getShader(2)->lightToShader("pointlights[1].position", _lights->getLight(1)._position);
+	_shaderManager->getShader(2)->lightToShader("pointlights[0].color", _lights->getLight(0)._color);
+	_shaderManager->getShader(2)->lightToShader("pointlights[1].color", _lights->getLight(1)._color);
+
+	//Spotlight - Key L
+	if (_controller->getSpotlightStatus())
+	{
+		_shaderManager->getShader(2)->lightToShader("spotlight1.position", _camera->getPosition());
+		_shaderManager->getShader(2)->lightToShader("spotlight1.direction", _camera->getOrientation());
+		_shaderManager->getShader(2)->lightToShaderFloat("spotlight1.cutOff", glm::cos(glm::radians(12.5f)));
+		_shaderManager->getShader(2)->lightToShaderFloat("spotlight1.outerCutOff", glm::cos(glm::radians(17.5f)));
+		_shaderManager->getShader(2)->lightToShader("spotlight1.color", glm::vec3(1.0, 1.0, 1.0));
+	}
+	else
+		_shaderManager->getShader(2)->lightToShaderFloat("spotlight1.outerCutOff", glm::cos(glm::radians(0.0f)));
 
 	_shaderManager->getShader(2)->lightsCountToShader(2);
 
 	//SkyBox motion
 	_objectManager->getObject(0)->getTransformations()->staticTranslate(_camera->getPosition().x, _camera->getPosition().y, _camera->getPosition().z);
-
 
 	for (int i = 0; i < _objectManager->getCount(); i++)
 	{

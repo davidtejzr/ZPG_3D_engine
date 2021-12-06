@@ -32,6 +32,7 @@ public:
 	static Controller* getInstance(Camera* camera);
 	void checkInputs(TextureManager* tm);
 	void checkInputs();
+	bool getSpotlightStatus();
 private:
 	Controller(Camera* camera);
 	static Controller* _instance;
@@ -40,5 +41,7 @@ private:
 	float _sensitivity = 100.0f;
 	bool _firstClickRight = true;
 	bool _firstClickLeft = true;
+	bool _spotlightStatus = false;
+	bool _firstClickL = true;
 };
 

@@ -53,3 +53,8 @@ glm::vec3 Camera::getPosition()
 {
 	return _position;
 }
+
+glm::vec3 Camera::getOrientation()
+{
+	return _orientation;
+}

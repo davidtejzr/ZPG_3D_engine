@@ -24,26 +24,32 @@ void Controller::checkInputs(TextureManager* tm)
 	{
 		_camera->_position += _speed * _camera->_orientation;
 	}
+
 	if (glfwGetKey(_camera->_window, GLFW_KEY_A) == GLFW_PRESS)
 	{
 		_camera->_position += _speed * -glm::normalize(glm::cross(_camera->_orientation, _camera->_up));
 	}
+
 	if (glfwGetKey(_camera->_window, GLFW_KEY_S) == GLFW_PRESS)
 	{
 		_camera->_position += _speed * -_camera->_orientation;
 	}
+
 	if (glfwGetKey(_camera->_window, GLFW_KEY_D) == GLFW_PRESS)
 	{
 		_camera->_position += _speed * glm::normalize(glm::cross(_camera->_orientation, _camera->_up));
 	}
+
 	if (glfwGetKey(_camera->_window, GLFW_KEY_SPACE) == GLFW_PRESS)
 	{
 		_camera->_position += _speed * _camera->_up;
 	}
+
 	if (glfwGetKey(_camera->_window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
 	{
 		_camera->_position += _speed * -_camera->_up;
 	}
+
 	if (glfwGetKey(_camera->_window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{
 		_speed = 0.4f;
@@ -51,6 +57,19 @@ void Controller::checkInputs(TextureManager* tm)
 	else if (glfwGetKey(_camera->_window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
 	{
 		_speed = 0.1f;
+	}
+
+	if (glfwGetKey(_camera->_window, GLFW_KEY_L) == GLFW_PRESS)
+	{
+		if (_firstClickL)
+		{
+			_spotlightStatus = !_spotlightStatus;
+			_firstClickL = false;
+		}
+	}
+	else if (glfwGetKey(_camera->_window, GLFW_KEY_L) == GLFW_RELEASE)
+	{
+		_firstClickL = true;
 	}
 
 	//Mouse
@@ -218,4 +237,9 @@ void Controller::checkInputs()
 		glfwSetInputMode(_camera->_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		_firstClickRight = true;
 	}
+}
+
+bool Controller::getSpotlightStatus()
+{
+	return _spotlightStatus;
 }
