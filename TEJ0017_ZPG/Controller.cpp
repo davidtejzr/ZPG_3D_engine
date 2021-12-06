@@ -149,7 +149,6 @@ void Controller::checkInputs(TextureManager* tm)
 
 						printf("unProject [%f,%f,%f]\n", pos.x, pos.y, pos.z);
 
-						//pridavani objektu obcas zpusobuje pady, musim jeste doresit...
 						Model* model = new Model("Objects/tree.obj");
 						om->insertObject(ObjectFactory::initUniversalTriangle(model, sm->getShader(2), tm->getTexture(2)));
 						om->getObject(om->getCount()-1)->getTransformations()->translate(pos.x, pos.y, pos.z);

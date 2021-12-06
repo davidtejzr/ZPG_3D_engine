@@ -48,6 +48,12 @@ Object* ObjectFactory::initUniversalTriangle(Model* model, Shader* shader, Textu
     return object;
 }
 
+Object* ObjectFactory::initUniversalTriangle(Model* model, Shader* shader, Texture* texture, Texture* normalTexture)
+{
+    Object* object = new UniversalTriangleObject(shader, model, texture, normalTexture);
+    return object;
+}
+
 Object* ObjectFactory::initUniversalTriangle(Model* model, Shader* shader, Texture* texture, Bezier* bezier)
 {
     Object* object = new UniversalTriangleObject(shader, model, texture, bezier);

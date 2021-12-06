@@ -27,6 +27,11 @@ void Tranformations::staticTranslate(float x, float y, float z)
 	_model = glm::translate(glm::vec3(x, y, z));
 }
 
+void Tranformations::setModel(glm::mat4 model)
+{
+	_model = model;
+}
+
 glm::mat4 Tranformations::getModel()
 {
 	return _model;

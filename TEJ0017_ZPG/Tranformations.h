@@ -27,6 +27,7 @@ public:
 	void translate(float x, float y, float z);
 	void scale(float x, float y, float z);
 	void staticTranslate(float x, float y, float z);
+	void setModel(glm::mat4 model);
 	glm::mat4 getModel();
 private:
 	glm::mat4 _model;

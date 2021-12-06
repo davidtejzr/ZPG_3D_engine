@@ -16,6 +16,7 @@ protected:
 	Model* _model;
 	Tranformations* _trans;
 	Texture* _texture;
+	Texture* _normalTexture = nullptr;
 	Bezier* _bezier = nullptr;
 };
 

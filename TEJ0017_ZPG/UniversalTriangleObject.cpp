@@ -8,6 +8,15 @@ UniversalTriangleObject::UniversalTriangleObject(Shader* shader, Model* model, T
 	_texture = texture;
 }
 
+UniversalTriangleObject::UniversalTriangleObject(Shader* shader, Model* model, Texture* texture, Texture* normalTexture)
+{
+	_shader = shader;
+	_model = model;
+	_trans = new Tranformations();
+	_texture = texture;
+	_normalTexture = normalTexture;
+}
+
 UniversalTriangleObject::UniversalTriangleObject(Shader* shader, Model* model, Texture* texture, Bezier* bezier)
 {
 	_shader = shader;
@@ -28,6 +37,9 @@ void UniversalTriangleObject::loopObject(Camera* camera)
 	_shader->viewToShader(camera->getView());
 	_texture->setTexture();
 	_shader->textureToShader(_texture->getId());
+
+	if(_normalTexture != nullptr)
+		_shader->normalTextureToShader(_normalTexture->getId());
 
 	_model->modelInLoop();
 	glDrawElements(GL_TRIANGLES, _model->getIndiciesCount(), GL_UNSIGNED_INT, NULL);

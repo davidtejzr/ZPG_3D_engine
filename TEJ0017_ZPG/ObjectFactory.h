@@ -25,6 +25,7 @@ public:
 	static Object* initGround(Model* model, Shader* shader);
 	static Object* initPlain(Model* model, Shader* shader);
 	static Object* initUniversalTriangle(Model* model, Shader* shader, Texture* texture);
+	static Object* initUniversalTriangle(Model* model, Shader* shader, Texture* texture, Texture* normalTexture);
 	static Object* initUniversalTriangle(Model* model, Shader* shader, Texture* texture, Bezier* bezier);
 	static Object* initTerrain(Model* model, Shader* shader, Texture* texture);
 	static Object* initSkybox(Model* model, Shader* shader, Texture* texture);

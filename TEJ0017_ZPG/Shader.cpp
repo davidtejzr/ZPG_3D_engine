@@ -87,6 +87,12 @@ void Shader::colorToShader(glm::vec3 color)
 	glUniform3f(glGetUniformLocation(_shaderProgram, "lightColor"), color.x, color.y, color.z);
 }
 
+void Shader::normalTextureToShader(int id)
+{
+	GLint uniformID = glGetUniformLocation(_shaderProgram, "normalTextureUnitID");
+	glUniform1i(uniformID, id);
+}
+
 void Shader::update()
 {
 	Camera *cam = Camera::getInstance();

@@ -55,20 +55,23 @@ FourthScene::FourthScene(GLFWwindow* window)
 
 	Model* model3 = new Model("Objects/zombie.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model3, _shaderManager->getShader(2), _textures->getTexture(6), 
-		new Bezier(glm::mat4(glm::vec4(-1.0, 3.0, -3.0, 1.0), glm::vec4(3.0, -6.0, 3.0, 0), glm::vec4(-3.0, 3.0, 0, 0), glm::vec4(1, 0, 0, 0)), 
-			glm::mat4x3(glm::vec3(-20, 0, 17), glm::vec3(0, 0, 20), glm::vec3(15, 0, 12), glm::vec3(30, 0, 10)), 0.5, 0.005)));
+		new Bezier(glm::mat4x3(glm::vec3(-20, 0, 17), glm::vec3(0, 0, 20), glm::vec3(15, 0, 12), glm::vec3(30, 0, 10)), 90.0f)));
 	nextObject++;
 
 	Model* model4 = new Model("Objects/zombie.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model4, _shaderManager->getShader(2), _textures->getTexture(6),
-		new Bezier(glm::mat4(glm::vec4(-1.0, 3.0, -3.0, 1.0), glm::vec4(3.0, -6.0, 3.0, 0), glm::vec4(-3.0, 3.0, 0, 0), glm::vec4(1, 0, 0, 0)),
-			glm::mat4x3(glm::vec3(-3, 0, -5), glm::vec3(-3, 0, 5), glm::vec3(-3, 0, 10), glm::vec3(-3, 0, 15)), 0.5, 0.005)));
+		new Bezier(glm::mat4x3(glm::vec3(-3, 0, -5), glm::vec3(-3, 0, 5), glm::vec3(-3, 0, 10), glm::vec3(-3, 0, 15)), 0.0f)));
 	nextObject++;
 
 	Model* model5 = new Model("Objects/zombie.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model5, _shaderManager->getShader(2), _textures->getTexture(6),
-		new Bezier(glm::mat4(glm::vec4(-1.0, 3.0, -3.0, 1.0), glm::vec4(3.0, -6.0, 3.0, 0), glm::vec4(-3.0, 3.0, 0, 0), glm::vec4(1, 0, 0, 0)),
-			glm::mat4x3(glm::vec3(30, 0, -2), glm::vec3(15, 0, -3), glm::vec3(0, 0, -1), glm::vec3(-20, 0, -20)), 0.5, 0.005)));
+		new Bezier(glm::mat4x3(glm::vec3(30, 0, -2), glm::vec3(15, 0, -3), glm::vec3(0, 0, -1), glm::vec3(-20, 0, -10)), -90.0f)));
+	nextObject++;
+
+	Model* model6 = new Model("Objects/normalSphere.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model6, _shaderManager->getShader(2), _textures->getTexture(7), _textures->getTexture(8)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(-5.0f, 40.0f, -5.0f);
+	_objectManager->getObject(nextObject)->getTransformations()->scale(20.0f, 20.0f, 20.0f);
 	nextObject++;
 
 	for (int j = 0; j < 5; j++)
@@ -103,8 +106,6 @@ void FourthScene::renderScene()
 	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs(_textures);
 	_camera->lookAt();
-	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
-	//_shaderManager->getShader(2)->update();
 	_cameraObserver->notify();
 
 	_shaderManager->getShader(2)->lightToShader("pointlights[0].position", _lights->getLight(0)._position);

@@ -2,7 +2,8 @@
 
 in vec4 ex_worldPosition;
 in vec4 ex_worldNormal;
-in vec2 uv;
+in vec2 _uv;
+in mat3 tbn;
 out vec4 frag_colour;
 
 #define MAX_LIGHTS 4
@@ -27,6 +28,7 @@ struct spotlight
 uniform vec3 cameraPosition;
 uniform vec3 lightPosition;
 uniform sampler2D textureUnitID;
+uniform sampler2D modelTextureUnitID;
 uniform pointlight pointlights[MAX_LIGHTS];
 uniform spotlight spotlight1;
 uniform int lightsCount;
@@ -79,6 +81,12 @@ vec4 calcSpotLight(spotlight l_spotlight, vec3 cameraDirection, vec4 ambient)
 
 void main(void)
 {
+	/*vec3 encodedNormal  = texture(modelTextureUnitID, _uv).rgb;
+	encodedNormal = 2.0 * encodedNormal - 1.0; //RGB to vector
+	//intensity
+	encodedNormal = normalize (encodedNormal*vec3(1,1,intensity)); 
+	vec3 normal = normalize(tbn * encodedNormal);*/
+
 	vec4 ambient = vec4(0.1);
 	vec3 cameraDirection = normalize(cameraPosition - vec3(ex_worldPosition));
 	vec4 result = vec4(0.0);
@@ -90,5 +98,5 @@ void main(void)
 		result += calcPointLight(pointlights[i].position, pointlights[i].color, cameraDirection, ambient);
 	}
 
-	frag_colour = result * texture(textureUnitID, uv);
+	frag_colour = result * texture(textureUnitID, _uv);
 }

@@ -22,7 +22,7 @@
 class Bezier
 {
 public:
-	Bezier(glm::mat4 A, glm::mat4x3 B, float t, float delta);
+	Bezier(glm::mat4x3 B, float initRotate);
 	void renderBezier(Tranformations* transformations);
 private:
 	glm::mat4 _M;
@@ -30,5 +30,6 @@ private:
 	glm::mat4x3 _B;
 	float _t;
 	float _delta;
+	float _initRotate;
 };
 

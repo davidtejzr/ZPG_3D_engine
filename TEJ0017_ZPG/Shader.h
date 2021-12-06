@@ -34,6 +34,7 @@ public:
 	void lightToShaderFloat(const char* varName, float value);
 	void lightsCountToShader(int count);
 	void colorToShader(glm::vec3 color);
+	void normalTextureToShader(int id);
 	void update();
 private:
 	const char* _vertex_shader;
