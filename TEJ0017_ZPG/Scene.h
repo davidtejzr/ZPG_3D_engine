@@ -22,6 +22,13 @@
 #include "plain.h"
 #include "skybox.h"
 
+static void newResolutions_callback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+	Camera::getInstance()->setWindowResolutions(width, height);
+	printf("W: %d H: %d\n", width, height);
+}
+
 class Scene
 {
 public:

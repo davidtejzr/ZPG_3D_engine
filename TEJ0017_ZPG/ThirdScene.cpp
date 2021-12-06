@@ -47,6 +47,7 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 
 void ThirdScene::renderScene()
 {
+	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs();
 	_camera->lookAt();
 	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());

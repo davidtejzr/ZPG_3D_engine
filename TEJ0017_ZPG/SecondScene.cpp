@@ -39,6 +39,7 @@ SecondScene::SecondScene(GLFWwindow* window)
 
 void SecondScene::renderScene()
 {
+	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs();
 	_camera->lookAt();
 

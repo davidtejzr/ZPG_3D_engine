@@ -4,13 +4,6 @@ float x = 0.0f;
 float z = 0.0f;
 int nextObject = 0;
 
-void newResolutions(GLFWwindow* window, int width, int height)
-{
-	glViewport(0, 0, width, height);
-	Camera::getInstance()->setWindowResolutions(width, height);
-	printf("W: %d H: %d\n", width, height);
-}
-
 FourthScene::FourthScene(GLFWwindow* window)
 {
 	_window = window;
@@ -109,8 +102,7 @@ FourthScene::FourthScene(GLFWwindow* window)
 
 void FourthScene::renderScene()
 {
-	glfwSetWindowSizeCallback(_window, newResolutions);
-
+	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs(_textures);
 	_camera->lookAt();
 	//_shaderManager->getShader(3)->cameraPosToShader(_camera->getPosition());
