@@ -19,7 +19,6 @@ void Bezier::renderBezier(Tranformations* transformations)
 	if (_t >= 1.0f || _t <= 0.0f)
 	{
 		_delta *= -1;
-		transformations->rotate(180.0f, 0.0f, 0.0f);
 	}
 	_t += _delta;
 }
