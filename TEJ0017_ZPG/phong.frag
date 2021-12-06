@@ -33,7 +33,7 @@ uniform pointlight pointlights[MAX_LIGHTS];
 uniform spotlight spotlight1;
 uniform int lightsCount;
 
-vec4 calcPointLight(vec3 l_position, vec3 l_color, vec3 cameraDirection, vec4 ambient)
+vec4 calcPointLight(vec3 l_position, vec3 l_color, vec3 cameraDirection, vec4 ambient, mat3 tbn)
 {
 	vec3 lightVector = normalize(l_position - vec3(ex_worldPosition));
 	float dotProduct = max(dot(lightVector, normalize(vec3(ex_worldNormal))), 0.0);
@@ -53,7 +53,7 @@ vec4 calcPointLight(vec3 l_position, vec3 l_color, vec3 cameraDirection, vec4 am
 	return ((ambient * vec4(l_color, 1.0)) + (diffuse * vec4(l_color, 1.0)) + (specular * vec4(l_color, 1.0)));
 }
 
-vec4 calcSpotLight(spotlight l_spotlight, vec3 cameraDirection, vec4 ambient)
+vec4 calcSpotLight(spotlight l_spotlight, vec3 cameraDirection, vec4 ambient, mat3 tbn)
 {
 	vec3 lightVector = normalize(l_spotlight.position - vec3(ex_worldPosition));
 	float theta = dot(lightVector, normalize(-l_spotlight.direction));
@@ -91,11 +91,11 @@ void main(void)
 	vec3 cameraDirection = normalize(cameraPosition - vec3(ex_worldPosition));
 	vec4 result = vec4(0.0);
 
-	result = calcSpotLight(spotlight1, cameraDirection, ambient);
+	result = calcSpotLight(spotlight1, cameraDirection, ambient, tbn);
 
 	for(int i = 0; i < lightsCount; i++)
 	{
-		result += calcPointLight(pointlights[i].position, pointlights[i].color, cameraDirection, ambient);
+		result += calcPointLight(pointlights[i].position, pointlights[i].color, cameraDirection, ambient, tbn);
 	}
 
 	frag_colour = result * texture(textureUnitID, _uv);
