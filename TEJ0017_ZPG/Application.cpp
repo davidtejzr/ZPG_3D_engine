@@ -17,6 +17,11 @@ Application::Application()
 	_init = Init::getInstance();
 	_window = _init->getWindow();
 
+	//ToDo
+	//1. projit kod a zjistit, co by se dalo rozclenit na tridy/potomky
+	//2. trida pro svetlo - potomci pro kontretni svetlo, zmena pro stisku L
+	//3. callback pro zmenu okna a kontroler
+
 	//Prepinani scen
 	//FirstScene - moje scena
 	//SecondScene - 4 kulicky
@@ -31,7 +36,7 @@ Application::Application()
 	while (!glfwWindowShouldClose(_window))
 	{
 		// clear color and depth buffer
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		_scene->renderScene();
 

@@ -142,8 +142,8 @@ void Controller::checkInputs(TextureManager* tm)
 					if(index == 3)
 					{
 						glm::vec3 screenX = glm::vec3(mouseX, newy, depth);
-						glm::mat4 view = glm::lookAt(_camera->_position, _camera->_position + _camera->_orientation, _camera->_up);
-						glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)(_camera->_width / _camera->_height), 0.1f, 100.0f);
+						glm::mat4 view = _camera->getView();
+						glm::mat4 projection = _camera->getProjection();
 						glm::vec4 viewPort = glm::vec4(0, 0, _camera->_width, _camera->_height);
 						glm::vec3 pos = glm::unProject(screenX, view, projection, viewPort);
 

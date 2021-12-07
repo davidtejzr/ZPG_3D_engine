@@ -130,6 +130,9 @@ void FourthScene::renderScene()
 	//SkyBox motion
 	_objectManager->getObject(0)->getTransformations()->staticTranslate(_camera->getPosition().x, _camera->getPosition().y, _camera->getPosition().z);
 
+	// clear color and depth buffer
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	for (int i = 0; i < _objectManager->getCount(); i++)
 	{
 		glStencilFunc(GL_ALWAYS, i, 0xFF);
