@@ -11,28 +11,17 @@
 #include<glm/gtx/vector_angle.hpp>
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
-//Include SOIL
-#include <SOIL.h>
-
 //Include the standard C++ headers  
-#include <stdlib.h>
-#include <stdio.h>
-#include <string>
-#include <fstream>
-#include <vector>
+#include <iostream>
 
-//My classes
-#include "Texture.h"
-
-class TextureManager
+class Light
 {
 public:
-	static TextureManager* getInstance();
-	static TextureManager* getInstanceValue();
-	Texture* getTexture(int id);
-private:
-	TextureManager();
-	static TextureManager* _instance;
-	std::vector<Texture>* _textures;
+	//virtual void setSmth() = 0;
+	glm::vec3 getPosition();
+	glm::vec3 getColor();
+protected:
+	glm::vec3 _position;
+	glm::vec3 _color;
 };
 

@@ -30,8 +30,12 @@ class Controller
 {
 public:
 	static Controller* getInstance(Camera* camera);
-	void checkInputs(TextureManager* tm);
+	void checkInputsWithIdentification();
 	void checkInputs();
+
+	void checkKeyboardInputs();
+	void checkMouseCursor();
+	void checkMouseIdentification();
 	bool getSpotlightStatus();
 private:
 	Controller(Camera* camera);

@@ -31,12 +31,27 @@
     <Filter Include="Header Files\Scenes">
       <UniqueIdentifier>{73ab231c-e1ea-4332-bf8e-cd3fcd8cecf9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Shading">
+      <UniqueIdentifier>{f3120a9f-0adb-4965-ad8e-8fcdf7bb66b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shading">
+      <UniqueIdentifier>{e2251af9-575c-46ab-b5cc-00cf0f97a5af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lighting">
+      <UniqueIdentifier>{d504b07f-e876-4bfa-8c8c-0fdad3284d24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Texturing">
+      <UniqueIdentifier>{08694e04-2c0f-49e1-b4ba-3dbbfea895d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lighting">
+      <UniqueIdentifier>{1350cdfc-a9c8-406c-8c1b-d4a220ce4212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Texturing">
+      <UniqueIdentifier>{1bea5b55-b7bb-4d69-acf7-751654d7174e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
@@ -49,9 +64,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShaderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SphereObject.cpp">
@@ -84,9 +96,6 @@
     <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SecondScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
@@ -94,9 +103,6 @@
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SkyboxObject.cpp">
@@ -108,14 +114,8 @@
     <ClCompile Include="ThirdScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FourthScene.cpp">
       <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="LightManager.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TerrainObject.cpp">
       <Filter>Source Files\Objects</Filter>
@@ -126,11 +126,35 @@
     <ClCompile Include="CameraObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\Shading</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>Source Files\Shading</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneFactory.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LightManager.cpp">
+      <Filter>Source Files\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\Texturing</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\Texturing</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Pointlight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spotlight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -153,9 +177,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tree.h">
@@ -212,9 +233,6 @@
     <ClInclude Include="CameraObserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="skybox.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
@@ -227,20 +245,38 @@
     <ClInclude Include="ThirdScene.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FourthScene.h">
       <Filter>Header Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="LightManager.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TerrainObject.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Bezier.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files\Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>Header Files\Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="LightManager.h">
+      <Filter>Header Files\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\Texturing</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Texturing</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointlight.h">
+      <Filter>Header Files\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Spotlight.h">
+      <Filter>Header Files\Lighting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

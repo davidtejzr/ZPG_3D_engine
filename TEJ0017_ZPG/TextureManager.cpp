@@ -1,5 +1,7 @@
 #include "TextureManager.h"
 
+TextureManager* TextureManager::_instance = nullptr;
+
 TextureManager::TextureManager()
 {
 	_textures = new std::vector<Texture>();
@@ -13,6 +15,21 @@ TextureManager::TextureManager()
 	_textures->push_back(Texture("Textures/zombie.png", 6));
 	_textures->push_back(Texture("Textures/albedo.png", 7));
 	_textures->push_back(Texture("Textures/normalmap.png", 8));
+}
+
+TextureManager* TextureManager::getInstance()
+{
+	if (_instance == nullptr)
+	{
+		_instance = new TextureManager();
+	}
+
+	return _instance;
+}
+
+TextureManager* TextureManager::getInstanceValue()
+{
+	return _instance;
 }
 
 Texture* TextureManager::getTexture(int id)

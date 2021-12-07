@@ -2,18 +2,15 @@
 
 LightManager::LightManager()
 {
-    _lights = new std::vector<light>();
+    _lights = new std::vector<Light>();
 }
 
-void LightManager::insertLight(glm::vec3 position, glm::vec3 color)
-{   
-    light l;
-    l._position = position;
-    l._color = color;
-    _lights->push_back(l);
+void LightManager::insertLight(Light light)
+{
+    _lights->push_back(light);
 }
 
-light LightManager::getLight(int id)
+Light LightManager::getLight(int id)
 {
     return _lights->at(id);
 }

@@ -15,6 +15,10 @@
 #include <iostream>
 #include <vector>
 
+#include "Light.h"
+#include "Pointlight.h"
+#include "Spotlight.h"
+
 struct light
 {
 	glm::vec3 _position;
@@ -25,9 +29,9 @@ class LightManager
 {
 public:
 	LightManager();
-	void insertLight(glm::vec3 position, glm::vec3 color);
-	light getLight(int id);
+	void insertLight(Light light);
+	Light getLight(int id);
 private:
-	std::vector<light>* _lights;
+	std::vector<Light>* _lights;
 };
 

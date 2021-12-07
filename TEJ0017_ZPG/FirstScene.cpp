@@ -86,7 +86,6 @@ FirstScene::FirstScene(GLFWwindow* window)
 
 void FirstScene::renderScene()
 {
-	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs();
 	_camera->lookAt();
 	_cameraObserver->notify();

@@ -154,6 +154,7 @@
     <ClCompile Include="FourthScene.cpp" />
     <ClCompile Include="GroundObject.cpp" />
     <ClCompile Include="Init.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -161,12 +162,14 @@
     <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="PlainObject.cpp" />
+    <ClCompile Include="Pointlight.cpp" />
     <ClCompile Include="SceneFactory.cpp" />
     <ClCompile Include="SecondScene.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="SkyboxObject.cpp" />
     <ClCompile Include="SphereObject.cpp" />
+    <ClCompile Include="Spotlight.cpp" />
     <ClCompile Include="SuziFlatObject.cpp" />
     <ClCompile Include="SuziSmoothObject.cpp" />
     <ClCompile Include="TerrainObject.cpp" />
@@ -188,6 +191,7 @@
     <ClInclude Include="ground.h" />
     <ClInclude Include="GroundObject.h" />
     <ClInclude Include="Init.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="LightManager.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Object.h" />
@@ -195,6 +199,7 @@
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="plain.h" />
     <ClInclude Include="PlainObject.h" />
+    <ClInclude Include="Pointlight.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneFactory.h" />
     <ClInclude Include="SecondScene.h" />
@@ -204,6 +209,7 @@
     <ClInclude Include="SkyboxObject.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="SphereObject.h" />
+    <ClInclude Include="Spotlight.h" />
     <ClInclude Include="SuziFlatObject.h" />
     <ClInclude Include="SuziSmoothObject.h" />
     <ClInclude Include="suzi_flat.h" />

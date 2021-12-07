@@ -13,13 +13,11 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 	//3 - Blinn
 	_shaderManager = ShaderManager::getInstance();
 	_cameraObserver = new CameraObserver();
-
-	//Texture textures;
-	_textures = new TextureManager();
+	_textures = TextureManager::getInstance();
 	_lights = new LightManager();
 
 	//Lights initialization
-	_lights->insertLight(glm::vec3(5.0f, 15.0f, 3.0f), glm::vec3(1.0f, 1.0f, 1.0f));
+	_lights->insertLight(Pointlight(glm::vec3(5.0f, 15.0f, 3.0f), glm::vec3(1.0f, 1.0f, 1.0f)));
 
 	Model* model0 = new Model("Objects/plane.obj");
 	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model0, _shaderManager->getShader(0), _textures->getTexture(3)));
@@ -43,18 +41,16 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
 	_controller = Controller::getInstance(_camera);
-	_lightPosition = glm::vec3(10.0f, 10.0f, 10.0f);
 }
 
 void ThirdScene::renderScene()
 {
-	glfwSetWindowSizeCallback(_window, newResolutions_callback);
 	_controller->checkInputs();
 	_camera->lookAt();
 	_cameraObserver->notify();
 
-	_shaderManager->getShader(2)->lightToShader("pointlights[0].position", _lights->getLight(0)._position);
-	_shaderManager->getShader(2)->lightToShader("pointlights[0].color", _lights->getLight(0)._color);
+	_shaderManager->getShader(2)->lightToShader("pointlights[0].position", _lights->getLight(0).getPosition());
+	_shaderManager->getShader(2)->lightToShader("pointlights[0].color", _lights->getLight(0).getColor());
 
 	_shaderManager->getShader(2)->lightsCountToShader(1);
 	//_shaderManager->getShader(3)->lightPosToShader(_lightPosition);
