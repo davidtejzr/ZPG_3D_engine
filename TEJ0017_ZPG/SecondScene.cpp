@@ -34,13 +34,13 @@ SecondScene::SecondScene(GLFWwindow* window)
 	_objectManager->getObject(3)->getTransformations()->translate(0.0f, -2.5f, -0.5f);
 
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 0.0f, 6.0f));
-	_controller = Controller::getInstance(_camera);
+	_controller = Controller::getInstance();
 	_lightPosition = glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 void SecondScene::renderScene()
 {
-	_controller->checkInputs();
+	//_controller->checkKeyboardInputs();
 	_camera->lookAt();
 	_cameraObserver->notify();
 

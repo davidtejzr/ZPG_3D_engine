@@ -40,12 +40,12 @@ ThirdScene::ThirdScene(GLFWwindow* window)
 	}
 
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
-	_controller = Controller::getInstance(_camera);
+	_controller = Controller::getInstance();
 }
 
 void ThirdScene::renderScene()
 {
-	_controller->checkInputs();
+	//_controller->checkKeyboardInputs();
 	_camera->lookAt();
 	_cameraObserver->notify();
 

@@ -76,7 +76,7 @@ FirstScene::FirstScene(GLFWwindow* window)
 	_objectManager->getObject(10)->getTransformations()->scale(0.15f, 0.15f, 0.15f);*/
 
 	_camera = Camera::getInstance(_window, glm::vec3(0.0f, 1.5f, 4.0f));
-	_controller = Controller::getInstance(_camera);
+	_controller = Controller::getInstance();
 	_lightPosition = glm::vec3(10.0f, 10.0f, 10.0f);
 
 
@@ -86,7 +86,7 @@ FirstScene::FirstScene(GLFWwindow* window)
 
 void FirstScene::renderScene()
 {
-	_controller->checkInputs();
+	//_controller->checkKeyboardInputs();
 	_camera->lookAt();
 	_cameraObserver->notify();
 

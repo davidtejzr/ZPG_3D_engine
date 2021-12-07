@@ -27,12 +27,14 @@ Init::Init()
 	glfwSwapInterval(1);
 
 	//CALLBACK INIT
-	glfwSetKeyCallback(_window, key_callback);
+	//glfwSetKeyCallback(_window, key_callback);
 	glfwSetMouseButtonCallback(_window, button_callback);
 	glfwSetCursorPosCallback(_window, cursor_callback);
 	glfwSetWindowFocusCallback(_window, window_focus_callback);
 	glfwSetWindowIconifyCallback(_window, window_iconify_callback);
 	glfwSetWindowSizeCallback(_window, window_size_callback);
+
+	glfwSetInputMode(_window, GLFW_STICKY_KEYS, 0);
 
 	// start GLEW extension handler
 	glewExperimental = GL_TRUE;

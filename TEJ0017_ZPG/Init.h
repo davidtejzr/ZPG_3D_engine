@@ -20,7 +20,7 @@ static void error_callback(int error, const char* description)
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	Controller::getInstance(Camera::getInstance())->checkKeyboardInputs();
+	Controller::getInstance()->checkKeyboardInputs(key, action);
 }
 
 static void window_focus_callback(GLFWwindow* window, int focused)
@@ -42,13 +42,13 @@ static void window_size_callback(GLFWwindow* window, int width, int height)
 
 static void cursor_callback(GLFWwindow* window, double x, double y)
 {
-	Controller::getInstance(Camera::getInstance())->checkMouseCursor();
+	Controller::getInstance()->checkMouseCursor();
 }
 
 static void button_callback(GLFWwindow* window, int button, int action, int mode)
 {
 	if (TextureManager::getInstanceValue() != nullptr)
-		Controller::getInstance(Camera::getInstance())->checkMouseIdentification();
+		Controller::getInstance()->checkMouseIdentification();
 }
 
 class Init

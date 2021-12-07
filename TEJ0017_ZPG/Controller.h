@@ -29,16 +29,14 @@
 class Controller
 {
 public:
-	static Controller* getInstance(Camera* camera);
-	void checkInputsWithIdentification();
-	void checkInputs();
-
-	void checkKeyboardInputs();
+	static Controller* getInstance();
+	void checkKeyboardInputs(int key, int action);
+	void checkKeyboardInputsOld();
 	void checkMouseCursor();
 	void checkMouseIdentification();
 	bool getSpotlightStatus();
 private:
-	Controller(Camera* camera);
+	Controller();
 	static Controller* _instance;
 	Camera* _camera;
 	float _speed = 0.1f;
