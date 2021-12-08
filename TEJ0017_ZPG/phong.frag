@@ -28,18 +28,18 @@ struct spotlight
 uniform vec3 cameraPosition;
 uniform vec3 lightPosition;
 uniform sampler2D textureUnitID;
-uniform sampler2D modelTextureUnitID;
 uniform pointlight pointlights[MAX_LIGHTS];
 uniform spotlight spotlight1;
 uniform int lightsCount;
+uniform int intensity = 1;
 
-vec4 calcPointLight(vec3 l_position, vec3 l_color, vec3 cameraDirection, vec4 ambient, mat3 tbn)
+vec4 calcPointLight(vec3 l_position, vec3 l_color, vec3 cameraDirection, vec4 ambient)
 {
 	vec3 lightVector = normalize(l_position - vec3(ex_worldPosition));
 	float dotProduct = max(dot(lightVector, normalize(vec3(ex_worldNormal))), 0.0);
 	vec4 diffuse = dotProduct * vec4(0.385, 0.647, 0.812, 1.0);
 	vec3 reflectDirection = reflect((-normalize(l_position)), normalize(vec3(ex_worldNormal)));
-	float specular = pow(max(dot(cameraDirection, reflectDirection), 0.0f), 8) * 0.5f;
+	vec4 specular = pow(max(dot(cameraDirection, reflectDirection), 0.0f), 8) * vec4(0.5f);
 
 	float distance = length(l_position - vec3(ex_worldPosition));
 	float linear = 0.0045f;
@@ -53,7 +53,7 @@ vec4 calcPointLight(vec3 l_position, vec3 l_color, vec3 cameraDirection, vec4 am
 	return ((ambient * vec4(l_color, 1.0)) + (diffuse * vec4(l_color, 1.0)) + (specular * vec4(l_color, 1.0)));
 }
 
-vec4 calcSpotLight(spotlight l_spotlight, vec3 cameraDirection, vec4 ambient, mat3 tbn)
+vec4 calcSpotLight(spotlight l_spotlight, vec3 cameraDirection, vec4 ambient)
 {
 	vec3 lightVector = normalize(l_spotlight.position - vec3(ex_worldPosition));
 	float theta = dot(lightVector, normalize(-l_spotlight.direction));
@@ -65,7 +65,7 @@ vec4 calcSpotLight(spotlight l_spotlight, vec3 cameraDirection, vec4 ambient, ma
 		float dotProduct = max(dot(lightVector, normalize(vec3(ex_worldNormal))), 0.0);
 		vec4 diffuse = dotProduct * vec4(0.385, 0.647, 0.812, 1.0);
 		vec3 reflectDirection = reflect((-normalize(l_spotlight.position)), normalize(vec3(ex_worldNormal)));
-		float specular = pow(max(dot(cameraDirection, reflectDirection), 0.0f), 8) * 0.5f;
+		vec4 specular = pow(max(dot(cameraDirection, reflectDirection), 0.0f), 8) * vec4(0.5f);
 
 		diffuse *= intensity;
 		specular *= intensity;
@@ -81,22 +81,16 @@ vec4 calcSpotLight(spotlight l_spotlight, vec3 cameraDirection, vec4 ambient, ma
 
 void main(void)
 {
-	/*vec3 encodedNormal  = texture(modelTextureUnitID, _uv).rgb;
-	encodedNormal = 2.0 * encodedNormal - 1.0; //RGB to vector
-	//intensity
-	encodedNormal = normalize (encodedNormal*vec3(1,1,intensity)); 
-	vec3 normal = normalize(tbn * encodedNormal);*/
-
 	vec4 ambient = vec4(0.1);
 	vec3 cameraDirection = normalize(cameraPosition - vec3(ex_worldPosition));
 	vec4 result = vec4(0.0);
 
-	result = calcSpotLight(spotlight1, cameraDirection, ambient, tbn);
+	result = calcSpotLight(spotlight1, cameraDirection, ambient);
 
 	for(int i = 0; i < lightsCount; i++)
 	{
-		result += calcPointLight(pointlights[i].position, pointlights[i].color, cameraDirection, ambient, tbn);
+		result += calcPointLight(pointlights[i].position, pointlights[i].color, cameraDirection, ambient);
 	}
 
-	frag_colour = result * texture(textureUnitID, _uv);
+	frag_colour += result * texture(textureUnitID, _uv);
 }

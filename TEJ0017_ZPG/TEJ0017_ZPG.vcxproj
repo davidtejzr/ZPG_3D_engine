@@ -237,6 +237,8 @@
     <None Include="lambert.vert" />
     <None Include="light_constant.frag" />
     <None Include="light_constant.vert" />
+    <None Include="normalMap_phong.frag" />
+    <None Include="normalMap_phong.vert" />
     <None Include="phong.frag" />
     <None Include="phong.vert" />
   </ItemGroup>

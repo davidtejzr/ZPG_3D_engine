@@ -16,6 +16,7 @@ FourthScene::FourthScene(GLFWwindow* window)
 	//3 - Blinn
 	//4 - Cubemap constant
 	//5 - Light constant
+	//6 - normal map Phong
 	_shaderManager = ShaderManager::getInstance();
 	_cameraObserver = new CameraObserver();
 	_textures = TextureManager::getInstance();
@@ -68,7 +69,7 @@ FourthScene::FourthScene(GLFWwindow* window)
 	nextObject++;
 
 	Model* model6 = new Model("Objects/normalSphere.obj");
-	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model6, _shaderManager->getShader(2), _textures->getTexture(7), _textures->getTexture(8)));
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model6, _shaderManager->getShader(6), _textures->getTexture(7), _textures->getTexture(8)));
 	_objectManager->getObject(nextObject)->getTransformations()->translate(-5.0f, 40.0f, -5.0f);
 	_objectManager->getObject(nextObject)->getTransformations()->scale(20.0f, 20.0f, 20.0f);
 	nextObject++;
@@ -104,25 +105,8 @@ void FourthScene::renderScene()
 	_camera->lookAt();
 	_cameraObserver->notify();
 
-	_shaderManager->getShader(2)->lightToShader("pointlights[0].position", _lights->getLight(0).getPosition());
-	_shaderManager->getShader(2)->lightToShader("pointlights[1].position", _lights->getLight(1).getPosition());
-	_shaderManager->getShader(2)->lightToShader("pointlights[0].color", _lights->getLight(0).getColor());
-	_shaderManager->getShader(2)->lightToShader("pointlights[1].color", _lights->getLight(1).getColor());
-
-	//Spotlight - Key L
-	Spotlight spotlight(_camera->getPosition(), glm::vec3(1.0, 1.0, 1.0), _camera->getOrientation(), 12.5f, 17.5f);
-	if (_controller->getSpotlightStatus())
-	{
-		_shaderManager->getShader(2)->lightToShader("spotlight1.position", spotlight.getPosition());
-		_shaderManager->getShader(2)->lightToShader("spotlight1.direction", spotlight.getDirection());
-		_shaderManager->getShader(2)->lightToShaderFloat("spotlight1.cutOff", glm::cos(glm::radians(spotlight.getCutOff())));
-		_shaderManager->getShader(2)->lightToShaderFloat("spotlight1.outerCutOff", glm::cos(glm::radians(spotlight.getOuterCutOff())));
-		_shaderManager->getShader(2)->lightToShader("spotlight1.color", spotlight.getColor());
-	}
-	else
-		_shaderManager->getShader(2)->lightToShaderFloat("spotlight1.outerCutOff", glm::cos(glm::radians(0.0f)));
-
-	_shaderManager->getShader(2)->lightsCountToShader(2);
+	lightInit(2);
+	lightInit(6);
 
 	//SkyBox motion
 	_objectManager->getObject(0)->getTransformations()->staticTranslate(_camera->getPosition().x, _camera->getPosition().y, _camera->getPosition().z);
@@ -136,4 +120,27 @@ void FourthScene::renderScene()
 		if(_objectManager->getObject(i) != nullptr)
 			_objectManager->getObject(i)->loopObject(_camera);
 	}
+}
+
+void FourthScene::lightInit(int shaderId)
+{
+	_shaderManager->getShader(shaderId)->lightToShader("pointlights[0].position", _lights->getLight(0).getPosition());
+	_shaderManager->getShader(shaderId)->lightToShader("pointlights[1].position", _lights->getLight(1).getPosition());
+	_shaderManager->getShader(shaderId)->lightToShader("pointlights[0].color", _lights->getLight(0).getColor());
+	_shaderManager->getShader(shaderId)->lightToShader("pointlights[1].color", _lights->getLight(1).getColor());
+
+	//Spotlight - Key L
+	Spotlight spotlight(_camera->getPosition(), glm::vec3(1.0, 1.0, 1.0), _camera->getOrientation(), 12.5f, 17.5f);
+	if (_controller->getSpotlightStatus())
+	{
+		_shaderManager->getShader(shaderId)->lightToShader("spotlight1.position", spotlight.getPosition());
+		_shaderManager->getShader(shaderId)->lightToShader("spotlight1.direction", spotlight.getDirection());
+		_shaderManager->getShader(shaderId)->lightToShaderFloat("spotlight1.cutOff", glm::cos(glm::radians(spotlight.getCutOff())));
+		_shaderManager->getShader(shaderId)->lightToShaderFloat("spotlight1.outerCutOff", glm::cos(glm::radians(spotlight.getOuterCutOff())));
+		_shaderManager->getShader(shaderId)->lightToShader("spotlight1.color", spotlight.getColor());
+	}
+	else
+		_shaderManager->getShader(shaderId)->lightToShaderFloat("spotlight1.outerCutOff", glm::cos(glm::radians(0.0f)));
+
+	_shaderManager->getShader(shaderId)->lightsCountToShader(2);
 }

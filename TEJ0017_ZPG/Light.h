@@ -17,7 +17,6 @@
 class Light
 {
 public:
-	//virtual void setSmth() = 0;
 	glm::vec3 getPosition();
 	glm::vec3 getColor();
 protected:

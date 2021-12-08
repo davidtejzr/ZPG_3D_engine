@@ -72,15 +72,6 @@
     <ClCompile Include="TreeObject.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SuziFlatObject.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
@@ -148,10 +139,19 @@
       <Filter>Source Files\Lighting</Filter>
     </ClCompile>
     <ClCompile Include="Pointlight.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Lighting</Filter>
     </ClCompile>
     <ClCompile Include="Spotlight.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectFactory.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,15 +187,6 @@
     </ClInclude>
     <ClInclude Include="TreeObject.h">
       <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectFactory.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SuziFlatObject.h">
       <Filter>Header Files\Objects</Filter>
@@ -278,6 +269,15 @@
     <ClInclude Include="Spotlight.h">
       <Filter>Header Files\Lighting</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="constant.vert">
@@ -315,6 +315,12 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="light_constant.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="normalMap_phong.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="normalMap_phong.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>
