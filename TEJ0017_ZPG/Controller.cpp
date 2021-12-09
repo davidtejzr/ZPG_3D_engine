@@ -1,10 +1,14 @@
 #include "Controller.h"
 
 Controller* Controller::_instance = nullptr;
+int choosedObjectIndex = NULL;
 
 Controller::Controller()
 {
 	_camera = Camera::getInstance();
+	_om = ObjectManager::getInstance();
+	_sm = ShaderManager::getInstance();
+	_tm = TextureManager::getInstance();
 }
 
 Controller* Controller::getInstance()
@@ -19,6 +23,7 @@ Controller* Controller::getInstance()
 
 void Controller::checkKeyboardInputs(int key, int action)
 {
+	//test
 	if (key == GLFW_KEY_W)
 	{
 		if (GLFW_REPEAT == action)
@@ -27,57 +32,6 @@ void Controller::checkKeyboardInputs(int key, int action)
 		}
 	}
 
-	/*if (glfwGetKey(_camera->_window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-		_camera->_position += _speed * _camera->_orientation;
-	}
-
-	if (glfwGetKey(_camera->_window, GLFW_KEY_A) == GLFW_PRESS)
-	{
-		_camera->_position += _speed * -glm::normalize(glm::cross(_camera->_orientation, _camera->_up));
-	}
-
-	if (glfwGetKey(_camera->_window, GLFW_KEY_S) == GLFW_PRESS)
-	{
-		_camera->_position += _speed * -_camera->_orientation;
-	}
-
-	if (glfwGetKey(_camera->_window, GLFW_KEY_D) == GLFW_PRESS)
-	{
-		_camera->_position += _speed * glm::normalize(glm::cross(_camera->_orientation, _camera->_up));
-	}
-
-	if (glfwGetKey(_camera->_window, GLFW_KEY_SPACE) == GLFW_PRESS)
-	{
-		_camera->_position += _speed * _camera->_up;
-	}
-
-	if (glfwGetKey(_camera->_window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
-	{
-		_camera->_position += _speed * -_camera->_up;
-	}
-
-	if (glfwGetKey(_camera->_window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
-	{
-		_speed = 0.4f;
-	}
-	else if (glfwGetKey(_camera->_window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
-	{
-		_speed = 0.1f;
-	}
-
-	if (glfwGetKey(_camera->_window, GLFW_KEY_L) == GLFW_PRESS)
-	{
-		if (_firstClickL)
-		{
-			_spotlightStatus = !_spotlightStatus;
-			_firstClickL = false;
-		}
-	}
-	else if (glfwGetKey(_camera->_window, GLFW_KEY_L) == GLFW_RELEASE)
-	{
-		_firstClickL = true;
-	}*/
 }
 
 void Controller::checkKeyboardInputsOld()
@@ -132,6 +86,15 @@ void Controller::checkKeyboardInputsOld()
 	else if (glfwGetKey(_camera->_window, GLFW_KEY_L) == GLFW_RELEASE)
 	{
 		_firstClickL = true;
+	}
+
+	if (glfwGetKey(_camera->_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
+		if (choosedObjectIndex != NULL)
+		{
+			_om->getObject(choosedObjectIndex)->changeShader(_sm->getShader(2));
+			choosedObjectIndex = NULL;
+		}
 	}
 }
 
@@ -198,13 +161,20 @@ void Controller::checkMouseIdentification()
 
 			printf("Clicked on pixel %f, %f, color %02hhx%02hhx%02hhx%02hhx, depth %f, stencil index %u\n", mouseX, mouseY, color[0], color[1], color[2], color[3], depth, index);
 
-			ObjectManager* om = ObjectManager::getInstance();
-			ShaderManager* sm = ShaderManager::getInstance();
-			TextureManager* tm = TextureManager::getInstance();
-			if (dynamic_cast<UniversalTriangleObject*>(om->getObject(index)))
+			if (dynamic_cast<UniversalTriangleObject*>(_om->getObject(index)))
 			{
-				om->removeObject(index);
-				printf("Object %d removed\n", index);;
+				if (index != choosedObjectIndex)
+				{
+					_om->getObject(choosedObjectIndex)->changeShader(_sm->getShader(2));
+					_om->getObject(index)->changeShader(_sm->getShader(5));
+					choosedObjectIndex = index;
+				}
+				else
+				{
+					_om->removeObject(index);
+					printf("Object %d removed\n", index);;
+					choosedObjectIndex = NULL;
+				}
 			}
 			else
 			{
@@ -218,11 +188,28 @@ void Controller::checkMouseIdentification()
 
 					printf("unProject [%f,%f,%f]\n", pos.x, pos.y, pos.z);
 
-					Model* model = new Model("Objects/tree.obj");
-					om->insertObject(ObjectFactory::initUniversalTriangle(model, sm->getShader(2), tm->getTexture(2)));
-					om->getObject(om->getCount() - 1)->getTransformations()->translate(pos.x, pos.y, pos.z);
-					om->getObject(om->getCount() - 1)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
-					printf("%d\n", om->getCount());
+					if (choosedObjectIndex != NULL)
+					{
+						glm::vec3 lastScale;
+						if (_om->getObject(choosedObjectIndex)->getTransformations()->getScaleVec() != glm::vec3(0.0))
+						{
+							lastScale = _om->getObject(choosedObjectIndex)->getTransformations()->getScaleVec();
+							_om->getObject(choosedObjectIndex)->getTransformations()->staticTranslate(pos.x, pos.y, pos.z);
+							_om->getObject(choosedObjectIndex)->getTransformations()->scale(lastScale.x, lastScale.y, lastScale.z);
+						}
+						else
+						{
+							_om->getObject(choosedObjectIndex)->getTransformations()->staticTranslate(pos.x, pos.y, pos.z);
+						}
+					}
+					else
+					{
+						Model* model = new Model("Objects/tree.obj");
+						_om->insertObject(ObjectFactory::initUniversalTriangle(model, _sm->getShader(2), _tm->getTexture(2)));
+						_om->getObject(_om->getCount() - 1)->getTransformations()->translate(pos.x, pos.y, pos.z);
+						_om->getObject(_om->getCount() - 1)->getTransformations()->scale(0.2f, 0.2f, 0.2f);
+						printf("%d\n", _om->getCount());
+					}
 				}
 			}
 		}

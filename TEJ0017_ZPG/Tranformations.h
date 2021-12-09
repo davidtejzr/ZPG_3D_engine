@@ -29,7 +29,9 @@ public:
 	void staticTranslate(float x, float y, float z);
 	void setModel(glm::mat4 model);
 	glm::mat4 getModel();
+	glm::vec3 getScaleVec();
 private:
 	glm::mat4 _model;
+	glm::vec3 _scaleVec = glm::vec3(0.0f);
 };
 

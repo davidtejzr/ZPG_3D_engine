@@ -45,5 +45,8 @@ private:
 	bool _firstClickLeft = true;
 	bool _spotlightStatus = false;
 	bool _firstClickL = true;
+	ObjectManager* _om;
+	ShaderManager* _sm;
+	TextureManager* _tm;
 };
 

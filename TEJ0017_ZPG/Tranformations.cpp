@@ -19,6 +19,7 @@ void Tranformations::translate(float x, float y, float z)
 
 void Tranformations::scale(float x, float y, float z)
 {
+	_scaleVec = glm::vec3(x, y, z);
 	_model = glm::scale(_model, glm::vec3(x, y, z));
 }
 
@@ -35,4 +36,9 @@ void Tranformations::setModel(glm::mat4 model)
 glm::mat4 Tranformations::getModel()
 {
 	return _model;
+}
+
+glm::vec3 Tranformations::getScaleVec()
+{
+	return _scaleVec;
 }

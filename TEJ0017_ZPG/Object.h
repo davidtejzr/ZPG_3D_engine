@@ -11,6 +11,7 @@ class Object
 public:
 	virtual void loopObject(Camera* camera) = 0;
 	Tranformations* getTransformations();
+	void changeShader(Shader* shader);
 protected:
 	Shader* _shader;
 	Model* _model;
