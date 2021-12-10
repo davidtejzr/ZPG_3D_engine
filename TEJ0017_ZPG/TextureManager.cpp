@@ -15,6 +15,10 @@ TextureManager::TextureManager()
 	_textures->push_back(Texture("Textures/zombie.png", 6));
 	_textures->push_back(Texture("Textures/albedo.png", 7));
 	_textures->push_back(Texture("Textures/normalmap.png", 8));
+	_textures->push_back(Texture("Textures/wall.png", 9));
+	_textures->push_back(Texture("Textures/Wood_Tower_Col.jpg", 10));
+	_textures->push_back(Texture("Textures/House_body.jpg", 11));
+	_textures->push_back(Texture("Textures/woodhouse.png", 12));
 }
 
 TextureManager* TextureManager::getInstance()

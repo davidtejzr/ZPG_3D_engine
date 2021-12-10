@@ -74,6 +74,45 @@ FourthScene::FourthScene(GLFWwindow* window)
 	_objectManager->getObject(nextObject)->getTransformations()->scale(20.0f, 20.0f, 20.0f);
 	nextObject++;
 
+	Model* wall1 = new Model("Objects/wall.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(wall1, _shaderManager->getShader(2), _textures->getTexture(9)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(-30.0f, 0.0f, -15.0f);
+	nextObject++;
+
+	Model* wall2 = new Model("Objects/wall.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(wall2, _shaderManager->getShader(2), _textures->getTexture(9)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(-22.0f, 0.0f, -15.0f);
+	nextObject++;
+
+	Model* wall3 = new Model("Objects/wall.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(wall3, _shaderManager->getShader(2), _textures->getTexture(9)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(-14.0f, 0.0f, -15.0f);
+	nextObject++;
+
+	Model* wall4 = new Model("Objects/wall.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(wall4, _shaderManager->getShader(2), _textures->getTexture(9)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(-34.0f, 0.0f, -11.0f);
+	_objectManager->getObject(nextObject)->getTransformations()->rotate(0.0f, 90.0f, 0.0f);
+	nextObject++;
+
+	Model* model7 = new Model("Objects/wooden-watch-tower2.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model7, _shaderManager->getShader(2), _textures->getTexture(10)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(0.0f, 0.0f, -10.0f);
+	nextObject++;
+
+	Model* model8 = new Model("Objects/Old_House.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model8, _shaderManager->getShader(2), _textures->getTexture(11)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(10.0f, 0.0f, -25.0f);
+	_objectManager->getObject(nextObject)->getTransformations()->scale(0.08f, 0.08f, 0.08f);
+	nextObject++;
+
+	Model* model9 = new Model("Objects/WoodHouse.obj");
+	_objectManager->insertObject(ObjectFactory::initUniversalTriangle(model9, _shaderManager->getShader(2), _textures->getTexture(12)));
+	_objectManager->getObject(nextObject)->getTransformations()->translate(0.0f, 0.0f, 23.0f);
+	_objectManager->getObject(nextObject)->getTransformations()->scale(2.0f, 2.0f, 2.0f);
+	_objectManager->getObject(nextObject)->getTransformations()->rotate(0.0f, 90.0f, 0.0f);
+	nextObject++;
+
 	for (int j = 0; j < 5; j++)
 	{
 		for (int i = 0; i < 5; i++)
