@@ -3,7 +3,6 @@
 in vec4 ex_worldPosition;
 in vec4 ex_worldNormal;
 in vec2 _uv;
-in mat3 tbn;
 out vec4 frag_colour;
 
 #define MAX_LIGHTS 4

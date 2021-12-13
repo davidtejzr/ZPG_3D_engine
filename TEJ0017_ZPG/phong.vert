@@ -7,7 +7,6 @@ layout(location = 3) in vec3 tangent;
 out vec4 ex_worldPosition;
 out vec4 ex_worldNormal;
 out vec2 _uv;
-out mat3 tbn;
 
 uniform mat4 model, view, projection;
 

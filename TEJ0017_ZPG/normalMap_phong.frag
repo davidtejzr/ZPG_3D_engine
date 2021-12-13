@@ -1,4 +1,4 @@
-#version 400
+#version 450
 
 in vec4 ex_worldPosition;
 in vec4 ex_worldNormal;
@@ -132,18 +132,19 @@ void main(void)
 	 vec3 lightPosition= vec3(10.0,0.0,-10.0); 
 
 	 vec3 encodedNormal  = texture(normalTextureUnitID, _uv).rgb;
-	 encodedNormal = 2.0 * encodedNormal - 1.0; //RGB to vector
-	 encodedNormal = normalize (encodedNormal*vec3(1,1,intensity)); //intensity
+	 encodedNormal = 2.0 * encodedNormal - 1.0;
+	 encodedNormal = normalize (encodedNormal*vec3(1,1,intensity));
 	 vec3 normal = normalize(tbn * encodedNormal) ;
 	
 	 vec3 lightDirection = normalize(lightPosition - vec3(ex_worldPosition));
 	 vec3 cameraDirection = normalize(camPosition - vec3(ex_worldPosition));
 
-	 if( dot(normalize(lightDirection), normalize(normal)) > 0)
-	 {
+	 if( dot(normalize(lightDirection), normalize(normal)) > 0){
 		diffuse = calcDiffuse(lightDirection, normal) *  texture(textureUnitID, _uv); //vec4( 0.385, 0.647, 0.812, 1.0);
 		vec3 reflectDir= reflect(-normalize(lightDirection),normalize(normal));
 		specular = calcSpec(reflectDir, cameraDirection, 32)  * vec4(1.0, 1.0, 1.0, 1.0);
 	 }
     frag_colour = ambient + diffuse + specular;	 
+
+
 }
